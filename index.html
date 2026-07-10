@@ -301,31 +301,198 @@
 
         /* SISTEMAS INTELIGENTES */
         .sistemas-rai {
-            padding: 100px var(--margin-desktop);
-            max-width: var(--container-max);
-            margin: 0 auto;
-            text-align: center;
+            position: relative;
+            width: 100%;
+            min-height: 760px;
+            overflow: hidden;
+            background: #090A0A;
+            display: flex;
+            align-items: center;
         }
-        .sistemas-rai h2 {
+        .sistemas-rai::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, #090A0A 0%, rgba(9,10,10,0.94) 32%, rgba(9,10,10,0.52) 68%, rgba(9,10,10,0.18) 100%),
+                radial-gradient(ellipse at 78% 45%, rgba(210,154,48,0.14) 0%, rgba(0,0,0,0) 65%);
+            z-index: 1;
+        }
+        .sistemas-rai .sist-map-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.82;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.015) 1px, transparent 1px),
+                radial-gradient(circle at 50% 60%, rgba(255,255,255,0.015) 1px, transparent 1px),
+                radial-gradient(circle at 75% 25%, rgba(255,255,255,0.015) 1px, transparent 1px),
+                radial-gradient(circle at 85% 75%, rgba(255,255,255,0.015) 1px, transparent 1px),
+                radial-gradient(circle at 10% 80%, rgba(255,255,255,0.015) 1px, transparent 1px),
+                radial-gradient(circle at 40% 40%, rgba(255,255,255,0.01) 2px, transparent 2px),
+                radial-gradient(circle at 65% 50%, rgba(255,255,255,0.01) 2px, transparent 2px),
+                radial-gradient(circle at 90% 35%, rgba(255,255,255,0.01) 2px, transparent 2px);
+            background-size: 120px 120px, 100px 100px, 90px 90px, 110px 110px, 80px 80px, 150px 150px, 130px 130px, 140px 140px;
+            background-position: 20% 30%, 50% 60%, 75% 25%, 85% 75%, 10% 80%, 40% 40%, 65% 50%, 90% 35%;
+            background-repeat: no-repeat;
+        }
+        .sist-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 88px 64px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .sist-left {
+            max-width: 520px;
+            z-index: 3;
+        }
+        .sist-left h2 {
             font-family: var(--font-display);
-            font-size: 56px;
+            font-size: 68px;
             font-weight: 300;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            color: var(--text-body);
-            max-width: 900px;
-            margin: 0 auto 16px;
+            line-height: 1.05;
+            letter-spacing: -0.045em;
+            color: #F5F3EE;
+            margin: 0;
         }
-        .sistemas-rai h2 .accent {
-            color: var(--accent-light);
+        .sist-left h2 .gold-accent {
+            color: #C99536;
+            font-style: italic;
+            font-weight: 300;
         }
-        .sistemas-rai p {
-            font-size: 20px;
-            font-weight: 400;
-            line-height: 1.5;
-            color: var(--text-secondary);
-            max-width: 640px;
-            margin: 0 auto;
+        .sist-divider {
+            width: 94px;
+            height: 2px;
+            margin: 48px 0 48px;
+            background: linear-gradient(90deg, #D8A542 0%, #936719 100%);
+        }
+        .sist-left .sist-text {
+            font-family: var(--font-display);
+            font-size: 25px;
+            font-weight: 300;
+            line-height: 1.55;
+            letter-spacing: -0.015em;
+            color: rgba(255,255,255,0.88);
+            margin-bottom: 22px;
+        }
+        .sist-left .sist-text:last-child {
+            margin-bottom: 0;
+        }
+        .sist-left .sist-text.gold {
+            color: #D6A23C;
+        }
+        .sist-right {
+            position: relative;
+            min-height: 590px;
+            z-index: 2;
+        }
+        .sist-desk {
+            position: absolute;
+            left: -18%;
+            right: -12%;
+            bottom: -8%;
+            height: 24%;
+            background: linear-gradient(180deg, rgba(33,31,27,0.8), #080808);
+            box-shadow: 0 -14px 40px rgba(0,0,0,0.35);
+            z-index: 0;
+        }
+        .sist-laptop {
+            position: absolute;
+            right: -4%;
+            bottom: -2%;
+            width: 58%;
+            min-width: 510px;
+            z-index: 1;
+            filter: drop-shadow(0 30px 45px rgba(0,0,0,0.7));
+            transform: perspective(1200px) rotateY(-6deg) rotateX(2deg);
+        }
+        .sist-laptop .laptop-body {
+            background: #1a1a1c;
+            border-radius: 12px 12px 0 0;
+            padding: 12px 12px 0;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .sist-laptop .laptop-screen {
+            background: #050505;
+            border-radius: 6px;
+            aspect-ratio: 16/10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .sist-laptop .laptop-screen img {
+            width: 42%;
+            height: auto;
+            opacity: 0.7;
+        }
+        .sist-laptop .laptop-base {
+            height: 18px;
+            background: linear-gradient(180deg, #222 0%, #111 100%);
+            border-radius: 0 0 8px 8px;
+            position: relative;
+            margin: 0 6px;
+        }
+        .sist-laptop .laptop-base::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 4px;
+            background: #333;
+            border-radius: 0 0 2px 2px;
+        }
+        .sist-panel {
+            position: absolute;
+            z-index: 3;
+            background: rgba(20,18,13,0.68);
+            border: 1px solid rgba(210,154,48,0.55);
+            border-radius: 14px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.42);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 218px;
+        }
+        .sist-panel .panel-icon {
+            width: 28px;
+            height: 28px;
+            color: #D6A23C;
+        }
+        .sist-panel .panel-label {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 500;
+            color: #F5F3EE;
+        }
+        .sist-panel-1 {
+            top: 43%;
+            left: 2%;
+            width: 218px;
+            height: 150px;
+        }
+        .sist-panel-2 {
+            top: 54%;
+            left: 34%;
+            width: 205px;
+            height: 150px;
+        }
+        .sist-panel-3 {
+            top: 72%;
+            left: 2%;
+            width: 255px;
+            height: 135px;
         }
 
         /* ESENCIA / MANIFIESTO */
@@ -664,22 +831,23 @@
         /* FOOTER */
         .footer-rai {
             padding: var(--section-gap) var(--margin-desktop) 40px;
-            background: var(--surface-container-lowest);
-            color: var(--primary);
+            background: var(--surface);
+            color: var(--text-body);
             max-width: 100%;
+            border-top: 1px solid rgba(200,197,202,0.08);
         }
         .footer-rai .footer-inner {
             max-width: var(--container-max);
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
             gap: 48px;
         }
         .footer-rai .footer-brand .footer-logo {
             font-family: var(--font-display);
             font-size: 20px;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--text-body);
             margin-bottom: 12px;
             display: flex;
             align-items: center;
@@ -691,7 +859,7 @@
         }
         .footer-rai .footer-brand p {
             font-size: 14px;
-            color: #1c1c1a;
+            color: var(--text-secondary);
             line-height: 1.6;
             max-width: 320px;
         }
@@ -704,17 +872,17 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            border: 1px solid rgba(0,0,0,0.12);
+            border: 1px solid rgba(200,197,202,0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #1c1c1a;
+            color: var(--text-secondary);
             transition: var(--transition);
             text-decoration: none;
         }
         .footer-rai .social-links a:hover {
-            border-color: var(--on-tertiary-container);
-            color: var(--on-tertiary-container);
+            border-color: var(--accent-light);
+            color: var(--accent-light);
         }
         .footer-rai .social-links a svg { width: 12px; height: 12px; }
         .footer-rai h5 {
@@ -722,46 +890,58 @@
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--primary);
+            color: var(--text-body);
             margin-bottom: 20px;
         }
         .footer-rai .footer-links { list-style: none; }
         .footer-rai .footer-links li { margin-bottom: 10px; }
         .footer-rai .footer-links a {
-            color: #1c1c1a;
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 14px;
             transition: var(--transition);
         }
-        .footer-rai .footer-links a:hover { color: var(--on-tertiary-container); }
+        .footer-rai .footer-links a:hover { color: var(--accent-light); }
         .footer-rai .footer-contact-item {
             display: flex;
             align-items: flex-start;
             gap: 10px;
             margin-bottom: 14px;
             font-size: 14px;
-            color: #1c1c1a;
+            color: var(--text-secondary);
         }
         .footer-rai .footer-contact-item svg {
             width: 14px;
             height: 14px;
             flex-shrink: 0;
             margin-top: 3px;
-            color: var(--on-tertiary-container);
+            color: var(--accent-light);
         }
         .footer-rai .footer-contact-item a {
-            color: #1c1c1a;
+            color: var(--text-secondary);
             text-decoration: none;
             transition: var(--transition);
         }
-        .footer-rai .footer-contact-item a:hover { color: var(--on-tertiary-container); }
+        .footer-rai .footer-contact-item a:hover { color: var(--accent-light); }
+        .footer-rai .footer-map {
+            margin-top: 12px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(200,197,202,0.1);
+            height: 140px;
+        }
+        .footer-rai .footer-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
         .footer-rai .footer-bottom {
             margin-top: 32px;
             padding-top: 16px;
-            border-top: 1px solid rgba(0,0,0,0.08);
+            border-top: 1px solid rgba(200,197,202,0.08);
             text-align: center;
             font-size: 12px;
-            color: #1c1c1a;
+            color: var(--text-secondary);
         }
 
         /* RESPONSIVE */
@@ -784,8 +964,14 @@
             .hero-actions-col {
                 justify-content: center;
             }
-            .sistemas-rai { padding: 80px 24px; }
-            .sistemas-rai h2 { font-size: 42px; }
+            .sistemas-rai { min-height: auto; }
+            .sist-container { padding: 72px 24px; grid-template-columns: 1fr 1fr; gap: 32px; }
+            .sist-left h2 { font-size: 54px; }
+            .sist-left .sist-text { font-size: 21px; }
+            .sist-laptop { width: 68%; min-width: 0; }
+            .sist-panel-1 { top: 38%; left: -2%; transform: scale(0.85); }
+            .sist-panel-2 { top: 48%; left: 28%; transform: scale(0.85); }
+            .sist-panel-3 { top: 64%; left: -2%; transform: scale(0.85); }
             .esencia-rai { padding: 80px 24px; }
             .esencia-rai .esencia-inner { grid-template-columns: 1fr; }
             .esencia-rai .esencia-text { max-width: 100%; }
@@ -804,6 +990,7 @@
             .cta-rai h2 { font-size: 36px; }
             .footer-rai { padding: 80px 24px 24px; }
             .footer-rai .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .footer-rai .footer-map { height: 120px; }
             .nav-rai .nav-inner { padding: 0 24px; }
         }
         @media (max-width: 768px) {
@@ -832,9 +1019,15 @@
             .white-strip { padding: 60px 24px; }
             .hero-text-col h1 { font-size: 36px; }
             .hero-text-col p { font-size: 16px; }
-            .sistemas-rai { padding: 60px 24px; }
-            .sistemas-rai h2 { font-size: 32px; }
-            .sistemas-rai p { font-size: 16px; }
+            .sist-container { padding: 56px 24px; grid-template-columns: 1fr; gap: 48px; }
+            .sist-left h2 { font-size: 42px; }
+            .sist-left .sist-text { font-size: 18px; }
+            .sist-right { min-height: 480px; }
+            .sist-laptop { width: 88%; min-width: 0; right: -8%; }
+            .sist-panel-1 { top: 30%; left: 2%; transform: scale(0.72); transform-origin: left center; }
+            .sist-panel-2 { top: 40%; left: 32%; transform: scale(0.72); transform-origin: left center; }
+            .sist-panel-3 { top: 52%; left: 2%; transform: scale(0.72); transform-origin: left center; }
+            .sist-desk { left: -28%; right: -20%; }
             .bento-rai .bento-grid { grid-template-columns: 1fr; gap: 16px; }
             .bento-card p { font-size: 18px; }
             .bento-card { padding: 20px; }
@@ -903,9 +1096,37 @@
 
     <!-- SISTEMAS INTELIGENTES -->
     <section class="sistemas-rai">
-        <div class="fade-in">
-            <h2>Sistemas Inteligentes <span class="accent">de Comunicación.</span></h2>
-            <p>La inteligencia artificial trabaja silenciosamente detrás de una experiencia impecable. Ahora tu negocio puede operar al nivel de las mejores marcas del mundo.</p>
+        <div class="sist-map-bg"></div>
+        <div class="sist-container">
+            <div class="sist-left fade-in">
+                <h2>Sistemas <span class="gold-accent">Inteligentes</span> de Comunicación.</h2>
+                <div class="sist-divider"></div>
+                <p class="sist-text">La inteligencia artificial trabaja silenciosamente detrás de una experiencia impecable.</p>
+                <p class="sist-text gold">Ahora tu negocio puede operar al nivel de las mejores marcas del mundo.</p>
+            </div>
+            <div class="sist-right">
+                <div class="sist-panel sist-panel-1 fade-in">
+                    <svg class="panel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    <span class="panel-label">Atención inteligente</span>
+                </div>
+                <div class="sist-panel sist-panel-2 fade-in">
+                    <svg class="panel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span class="panel-label">Crecimiento y analítica</span>
+                </div>
+                <div class="sist-panel sist-panel-3 fade-in">
+                    <svg class="panel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                    <span class="panel-label">Comunicación por voz</span>
+                </div>
+                <div class="sist-laptop fade-in">
+                    <div class="laptop-body">
+                        <div class="laptop-screen">
+                            <img src="multimedia/logorodasai.svg" alt="Rodas AI">
+                        </div>
+                    </div>
+                    <div class="laptop-base"></div>
+                </div>
+                <div class="sist-desk"></div>
+            </div>
         </div>
     </section>
 
@@ -1080,6 +1301,7 @@
                     <li><a href="servicios.html">Soluciones</a></li>
                     <li><a href="nosotros.html">Nosotros</a></li>
                     <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="https://wa.me/595986467299">Contacto</a></li>
                 </ul>
             </div>
             <div>
@@ -1094,12 +1316,15 @@
                 </div>
                 <div class="footer-contact-item">
                     <svg viewBox="0 0 512 512" fill="currentColor"><path d="M424 80H48a24 24 0 0 0-24 24v304a24 24 0 0 0 24 24h376a24 24 0 0 0 24-24V104a24 24 0 0 0-24-24zm-4 48v19.4L236 280.8 52 147.4V128zM52 344V199.8l184 133.4 184-133.4V344z"/></svg>
-                    <a href="mailto:info@rodasproducciones.com">info@rodasproducciones.com</a>
+                    <a href="mailto:info@rodasai.com">info@rodasai.com</a>
                 </div>
             </div>
             <div>
                 <h5>Ubicación</h5>
-                <p style="font-size:14px;color:#1c1c1a;line-height:1.6;">De las cordilleras 131 c/ Independencia Nacional</p>
+                <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;margin-bottom:12px;">De las cordilleras 131 c/ Independencia Nacional</p>
+                <div class="footer-map">
+                    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-57.63%2C-25.30%2C-57.55%2C-25.26&amp;layer=mapnik&amp;marker=-25.2817%2C-57.575" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">&copy; 2026 Rodas AI. Todos los derechos reservados.</div>
