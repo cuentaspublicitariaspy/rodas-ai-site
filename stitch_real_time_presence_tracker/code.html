@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rodas AI | Inteligencia Estratégica para tu negocio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#271900",
+                        "on-surface-variant": "#47464a",
+                        "inverse-on-surface": "#f3f0ec",
+                        "surface-container": "#f0ede9",
+                        "inverse-primary": "#c8c6c8",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dcdad6",
+                        "secondary-fixed-dim": "#c8c6c2",
+                        "on-secondary-fixed-variant": "#474744",
+                        "on-primary-fixed": "#1b1b1d",
+                        "tertiary-fixed": "#ffdea7",
+                        "on-background": "#1c1c1a",
+                        "surface": "#fcf9f5",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#1b1c19",
+                        "surface-container-highest": "#e5e2de",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f6f3ef",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#000000",
+                        "on-primary-fixed-variant": "#474649",
+                        "inverse-surface": "#31302e",
+                        "on-secondary-container": "#63635f",
+                        "secondary-container": "#e1dfdb",
+                        "primary-container": "#1b1b1d",
+                        "surface-variant": "#e5e2de",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#858386",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "outline": "#77767b",
+                        "primary-fixed-dim": "#c8c6c8",
+                        "surface-container-high": "#eae8e4",
+                        "secondary": "#5f5e5b",
+                        "on-tertiary-fixed": "#271900",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1c1c1a",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#e4e2dd",
+                        "tertiary-fixed-dim": "#f1bf61",
+                        "surface-bright": "#fcf9f5",
+                        "surface-tint": "#5f5e60",
+                        "outline-variant": "#c8c5ca",
+                        "on-tertiary-container": "#a77d25",
+                        "primary-fixed": "#e5e1e4",
+                        "on-tertiary-fixed-variant": "#5e4200",
+                        "background": "#fcf9f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "24px",
+                        "container-max": "1440px",
+                        "margin-desktop": "80px",
+                        "section-gap": "160px",
+                        "unit": "8px",
+                        "gutter": "32px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Manrope"],
+                        "label-caps": ["Manrope"],
+                        "display-xl-mobile": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "300" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "700" }],
+                        "display-xl-mobile": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "300" }],
+                        "body-md": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "body-lg": ["20px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #1b1b1d; /* Graphite base for the dark premium look */
+            color: #fcf9f5; /* Ivory text */
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .bronze-glow:hover {
+            box-shadow: 0 0 20px rgba(167, 125, 37, 0.15);
+            border-color: #f1bf61;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="font-body-md overflow-x-hidden">
+<!-- 1. Navigation -->
+<nav class="fixed top-0 w-full bg-surface/80 dark:bg-surface/80 backdrop-blur-xl z-50 border-b border-outline-variant/30">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-on-primary-fixed">
+                Rodas AI
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-body-md text-primary dark:text-on-primary-fixed border-b-2 border-primary dark:border-on-primary-fixed pb-1" href="#">Inicio</a>
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-tertiary-fixed transition-colors duration-300" href="#">Soluciones</a>
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-tertiary-fixed transition-colors duration-300" href="#">Nosotros</a>
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-tertiary-fixed transition-colors duration-300" href="#">FAQ</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-body-md text-body-md hover:bg-on-primary-container transition-all">
+                Solicitar auditoría privada
+            </button>
+</div>
+</nav>
+<!-- 2. Hero Section -->
+<section class="pt-[180px] pb-section-gap px-margin-desktop max-w-container-max mx-auto text-center">
+<div class="max-w-4xl mx-auto space-y-8">
+<h1 class="font-display-xl text-display-xl text-surface">Lo extraordinario ya no es exclusivo.</h1>
+<p class="font-body-lg text-body-lg text-on-secondary-container max-w-2xl mx-auto">
+                Ayudamos a emprendedores y dueños de negocios a incorporar capacidades de comunicación impulsadas por inteligencia artificial que antes solo estaban reservadas para las grandes marcas.
+            </p>
+<div class="flex gap-4 justify-center pt-4">
+<button class="bg-on-tertiary-container text-surface px-8 py-4 rounded-xl font-body-md transition-all bronze-glow">
+                    Solicitar auditoría privada
+                </button>
+<button class="border border-outline-variant/30 text-surface px-8 py-4 rounded-xl font-body-md hover:bg-surface/5 transition-all">
+                    Explorar soluciones
+                </button>
+</div>
+</div>
+<div class="mt-20 relative aspect-video w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] border border-white/10">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<img class="w-full h-full object-cover" data-alt="A cinematic, ultra-high-definition 16:9 aerial shot of a minimalist modern architectural structure integrated into a natural landscape at dusk. The lighting is warm and golden, with deep graphite shadows and ivory highlights on the stone surfaces. The scene conveys a sense of high-end strategy, quiet power, and technological sophistication without any obvious tech gadgets." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH964-K2NVTuKJ06Ygdq8YrvOrIIa4iB-zVyQANkfehzcYFr0WDKyo8c-4scC02zTcD4NWxVDpCTxIGe5EMVmZsrqOtERqS_rS2_9X3u38KWaeO1cGm8XLmFuYY_8kNOsTg4BzKkif_SCBftqhoZ-NejCQXq6skLKfLTM1fOEQVBVRsIGfKnB0BCIUiZ5yU-NSiPvcdqoJCJbcNYTz8uxMPHuMoyO_D0G36zbp5sGazeQM0xXniQHOnI9tGOctvr-0_Dv53N8Ckso"/>
+<div class="absolute inset-0 flex items-center justify-center z-20">
+<div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-surface text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Cambio de Paradigma -->
+<section class="py-section-gap px-margin-desktop bg-surface-container-lowest text-on-surface">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="space-y-12">
+<h2 class="font-headline-lg text-headline-lg text-primary max-w-md">Durante décadas, las grandes empresas contaron con capacidades que estuvieron fuera del alcance de la mayoría de los negocios.</h2>
+<div class="space-y-6 text-on-surface-variant max-w-lg">
+<p class="font-body-lg text-body-lg">
+                        La infraestructura tecnológica y la especialización de alto nivel solían requerir inversiones millonarias. Esto creaba una brecha insalvable entre las corporaciones globales y los negocios locales o medianos.
+                    </p>
+<p class="font-body-lg text-body-lg font-bold text-on-tertiary-container">
+                        Hoy, esas mismas capacidades pueden formar parte de tu negocio.
+                    </p>
+</div>
+</div>
+<div class="relative h-[600px] rounded-2xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A minimalist, editorial-style photograph of a high-end office interior featuring a single walnut wood desk, a premium leather chair, and a large window overlooking a misty, dark forest. The aesthetic is inspired by Aman Resorts, emphasizing quiet luxury, vast whitespace, and the intersection of human intelligence with natural beauty. Soft neutral tones of stone grey and warm ivory dominate the palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-fZW3lPah5xUnpMVrTQdIsGAqE5EfTMmsvxksQfmmmJftQULBAFge5UjPhwy8i_iQX9Z8Ex0G6fbHlvhBQ6ffegSeNT6BlAjNPhrOHe4rWV5CPbQJAyurbjBHgf3Go3sJaIJ4YknTG-Q-CYGjtTafgpSYXHN7eDl1dzft9y9lFVhVsOrv9LKvvDlaFM8EprPY-iXSxIWjTOXa8RFixXVmQklW7FJ0B-9fbj1XxqlC_7rVb0_z9MKJFX-bYcaCQMzLBcc5CHkPCpI"/>
+</div>
+</div>
+</section>
+<!-- 4. Nueva Realidad (Bento Grid Style) -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-24">
+<h2 class="font-display-xl text-display-xl text-surface">La diferencia ya no está en el tamaño de un negocio. Está en las capacidades que incorpora.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="glass-panel p-10 rounded-3xl space-y-4">
+<span class="material-symbols-outlined text-on-tertiary-container text-3xl">schedule</span>
+<p class="font-headline-md text-headline-md text-surface leading-tight">Hoy un negocio puede responder las 24 horas del día</p>
+</div>
+<div class="glass-panel p-10 rounded-3xl space-y-4 md:col-span-2 relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-on-tertiary-container text-3xl">person_pin</span>
+<p class="font-headline-md text-headline-md text-surface leading-tight max-w-md">Presentar nuevos productos con un portavoz digital de nivel mundial</p>
+</div>
+<div class="absolute -right-20 -bottom-20 opacity-20">
+<span class="material-symbols-outlined text-[240px]">video_settings</span>
+</div>
+</div>
+<div class="glass-panel p-10 rounded-3xl space-y-4 md:col-span-2">
+<span class="material-symbols-outlined text-on-tertiary-container text-3xl">psychology</span>
+<p class="font-headline-md text-headline-md text-surface leading-tight">Analizar cada interacción para optimizar la toma de decisiones estratégicas</p>
+</div>
+<div class="glass-panel p-10 rounded-3xl space-y-4">
+<span class="material-symbols-outlined text-on-tertiary-container text-3xl">auto_awesome</span>
+<p class="font-headline-md text-headline-md text-surface leading-tight">Personalizar la experiencia para cada cliente de forma masiva</p>
+</div>
+</div>
+</section>
+<!-- 5. Rodas AI Section (The Philosophy) -->
+<section class="py-section-gap bg-surface-container-high text-on-surface">
+<div class="px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-20">
+<div class="w-full md:w-1/2">
+<div class="aspect-square rounded-3xl overflow-hidden relative">
+
+<div class="absolute inset-0 flex items-center justify-center p-12 bg-black/10">
+<div class="text-surface font-display-xl-mobile text-display-xl-mobile tracking-tighter">SISTEMAS<br/>INTELIGENTES</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 space-y-8">
+<h2 class="font-display-xl-mobile text-display-xl-mobile text-primary">Sistemas Inteligentes de Comunicación.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    La inteligencia artificial es una herramienta. La comunicación es el verdadero desafío. En Rodas AI no solo instalamos software; diseñamos ecosistemas que integran personas, procesos y tecnología para que tu negocio hable el lenguaje del futuro.
+                </p>
+<div class="pt-4">
+<div class="flex items-center gap-4 mb-4">
+<span class="w-12 h-[1px] bg-on-tertiary-container"></span>
+<span class="font-label-caps text-label-caps uppercase text-on-tertiary-container">Integración Humano-Digital</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Soluciones -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<h2 class="font-headline-lg text-headline-lg text-surface max-w-xl">Soluciones para distintos desafíos de comunicación en tu negocio.</h2>
+<button class="font-label-caps text-label-caps text-on-tertiary-container border-b border-on-tertiary-container pb-1 hover:text-surface hover:border-surface transition-all">VER TODAS LAS SOLUCIONES</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
+<!-- Card 1 -->
+<div class="p-12 bg-[#1b1b1d] group hover:bg-surface/5 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-on-tertiary-container mb-8">support_agent</span>
+<h3 class="font-headline-md text-headline-md text-surface mb-4">Atención Inteligente</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">Resolución de dudas y soporte las 24 horas con la voz de tu marca.</p>
+</div>
+<!-- Card 2 -->
+<div class="p-12 bg-[#1b1b1d] group hover:bg-surface/5 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-on-tertiary-container mb-8">badge</span>
+<h3 class="font-headline-md text-headline-md text-surface mb-4">Presencia Profesional</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">Identidad digital y portavoces que elevan la percepción de confianza.</p>
+</div>
+<!-- Card 3 -->
+<div class="p-12 bg-[#1b1b1d] group hover:bg-surface/5 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-on-tertiary-container mb-8">movie</span>
+<h3 class="font-headline-md text-headline-md text-surface mb-4">Comunicación Audiovisual</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">Producción de contenido dinámico impulsado por IA para redes y web.</p>
+</div>
+<!-- Card 4 -->
+<div class="p-12 bg-[#1b1b1d] group hover:bg-surface/5 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-on-tertiary-container mb-8">settings_suggest</span>
+<h3 class="font-headline-md text-headline-md text-surface mb-4">Automatización</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">Flujos de trabajo que eliminan las tareas repetitivas en tu negocio.</p>
+</div>
+<!-- Card 5 -->
+<div class="p-12 bg-[#1b1b1d] group hover:bg-surface/5 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-on-tertiary-container mb-8">forum</span>
+<h3 class="font-headline-md text-headline-md text-surface mb-4">Experiencias Conversacionales</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">Diseño de chats que realmente comprenden y ayudan a tus clientes.</p>
+</div>
+<!-- Card 6 -->
+<div class="p-12 bg-[#1b1b1d] group hover:bg-surface/5 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-on-tertiary-container mb-8">mic_external_on</span>
+<h3 class="font-headline-md text-headline-md text-surface mb-4">Producción Profesional</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">Sonido y voz sintética de alta fidelidad para manuales y formación.</p>
+</div>
+</div>
+</section>
+<!-- 7. Filosofía -->
+<section class="py-section-gap px-margin-desktop text-center max-w-4xl mx-auto">
+<div class="space-y-12">
+<span class="font-label-caps text-label-caps text-on-tertiary-container tracking-[0.3em]">NUESTRA FILOSOFÍA</span>
+<h2 class="font-display-xl text-display-xl text-surface">La tecnología cambia todos los días. La confianza tarda años en construirse.</h2>
+<p class="font-headline-md text-headline-md text-on-secondary-container font-light">Por eso utilizamos la primera para fortalecer la segunda.</p>
+</div>
+</section>
+<!-- 8. Cómo Trabajamos -->
+<section class="py-section-gap bg-surface-container-low text-on-surface">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="mb-24 flex flex-col md:flex-row gap-12 items-baseline">
+<h2 class="font-headline-lg text-headline-lg text-primary">Un proceso diseñado para la excelencia de tu negocio.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="space-y-6">
+<div class="text-on-tertiary-container font-display-xl-mobile text-display-xl-mobile opacity-20">01</div>
+<h3 class="font-headline-md text-headline-md text-primary">Comprendemos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Analizamos tus objetivos actuales y los desafíos de comunicación que limitan tu crecimiento.</p>
+</div>
+<div class="space-y-6">
+<div class="text-on-tertiary-container font-display-xl-mobile text-display-xl-mobile opacity-20">02</div>
+<h3 class="font-headline-md text-headline-md text-primary">Diseñamos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Creamos una arquitectura de IA personalizada que se adapta orgánicamente a tu marca.</p>
+</div>
+<div class="space-y-6">
+<div class="text-on-tertiary-container font-display-xl-mobile text-display-xl-mobile opacity-20">03</div>
+<h3 class="font-headline-md text-headline-md text-primary">Implementamos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Ejecutamos la integración técnica asegurando que tu equipo esté alineado y empoderado.</p>
+</div>
+<div class="space-y-6">
+<div class="text-on-tertiary-container font-display-xl-mobile text-display-xl-mobile opacity-20">04</div>
+<h3 class="font-headline-md text-headline-md text-primary">Evolucionamos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Monitorizamos y optimizamos el sistema continuamente para mantener tu ventaja competitiva.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. CTA Final -->
+<section class="py-section-gap px-margin-desktop bg-[#000000] relative overflow-hidden">
+
+<div class="max-w-container-max mx-auto text-center relative z-10 space-y-12">
+<h2 class="font-display-xl text-display-xl text-surface max-w-4xl mx-auto">La forma en que un negocio se comunica influye directamente en la forma en que el mercado lo percibe.</h2>
+<div class="flex justify-center pt-8">
+<button class="bg-surface text-primary px-12 py-5 rounded-xl font-headline-md hover:bg-on-tertiary-container hover:text-surface transition-all bronze-glow">
+                    Solicitar auditoría privada
+                </button>
+</div>
+</div>
+</section>
+<!-- 10. Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1 space-y-6">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-on-primary-fixed">Rodas AI</div>
+<p class="font-body-md text-body-md text-on-surface dark:text-on-surface-variant">
+                    © 2024 Rodas AI. Inteligencia estratégica para tu negocio.
+                </p>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-caps text-label-caps text-primary">Navegación</h4>
+<div class="flex flex-col gap-2">
+<a class="text-secondary dark:text-on-secondary-container hover:text-tertiary-fixed-dim transition-colors" href="#">Inicio</a>
+<a class="text-secondary dark:text-on-secondary-container hover:text-tertiary-fixed-dim transition-colors" href="#">Soluciones</a>
+<a class="text-secondary dark:text-on-secondary-container hover:text-tertiary-fixed-dim transition-colors" href="#">Nosotros</a>
+<a class="text-secondary dark:text-on-secondary-container hover:text-tertiary-fixed-dim transition-colors" href="#">FAQ</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-caps text-label-caps text-primary">Contacto</h4>
+<div class="flex flex-col gap-2">
+<a class="text-secondary dark:text-on-secondary-container hover:text-tertiary-fixed-dim transition-colors" href="#">Contacto</a>
+<a class="text-secondary dark:text-on-secondary-container hover:text-tertiary-fixed-dim transition-colors" href="#">WhatsApp</a>
+<a class="text-secondary dark:text-on-secondary-container hover:text-tertiary-fixed-dim transition-colors" href="#">Email</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-caps text-label-caps text-primary">Ubicación</h4>
+<p class="text-secondary dark:text-on-secondary-container">
+                    Dirección Central de Estrategia<br/>
+                    Ciudad de México, MX
+                </p>
+</div>
+</div>
+</footer>
+<script>
+        // Smooth scroll interaction
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple visibility observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-8');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

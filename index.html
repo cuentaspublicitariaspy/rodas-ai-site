@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rodas AI - Inteligencia estratégica para tu negocio">
+    <meta name="author" content="Rolando Rodas">
+    <title>Rodas AI | Inteligencia Estratégica para tu negocio</title>
+    <link rel="icon" href="https://vendiendoeninternet.com/imagenes/Logo/LogoSoloRodasAI.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="css/rodas.css" rel="stylesheet">
+    <style>
+        :root {
+            --surface: #1b1b1d;
+            --surface-dim: #0f0f11;
+            --surface-bright: #2a2a2d;
+            --surface-container: #202224;
+            --surface-container-low: #1a1c1e;
+            --surface-container-high: #26282b;
+            --surface-container-highest: #2c2e31;
+            --surface-container-lowest: #ffffff;
+            --on-surface: #fcf9f5;
+            --on-surface-variant: #c8c5ca;
+            --primary: #000000;
+            --on-primary: #ffffff;
+            --primary-container: #1b1b1d;
+            --on-primary-container: #858386;
+            --secondary: #5f5e5b;
+            --on-secondary: #ffffff;
+            --secondary-container: #e1dfdb;
+            --on-secondary-container: #63635f;
+            --tertiary: #000000;
+            --on-tertiary: #ffffff;
+            --tertiary-container: #271900;
+            --on-tertiary-container: #a77d25;
+            --tertiary-fixed: #f1bf61;
+            --outline: #77767b;
+            --outline-variant: #c8c5ca;
+            --error: #ba1a1a;
+            --on-error: #ffffff;
+            --error-container: #ffdad6;
+            --on-error-container: #93000a;
+            --bg-body: var(--surface);
+            --text-body: var(--on-surface);
+            --text-secondary: var(--on-surface-variant);
+            --text-tertiary: var(--on-secondary-container);
+            --accent: var(--on-tertiary-container);
+            --accent-light: var(--tertiary-fixed);
+            --radius-sm: 0.125rem;
+            --radius: 0.25rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            --radius-card: var(--radius-lg);
+            --radius-btn: var(--radius);
+            --transition: 300ms ease-out;
+            --font-display: 'Manrope', sans-serif;
+            --font-body: 'Manrope', sans-serif;
+            --section-gap: 100px;
+            --margin-desktop: 80px;
+            --margin-mobile: 24px;
+            --container-max: 1440px;
+            --gutter: 32px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-body);
+            color: var(--text-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 900ms ease-out, transform 900ms ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* NAV */
+        .nav-rai {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+            padding: 16px 0;
+            transition: var(--transition);
+            background: rgba(27,27,29,0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(200,197,202,0.08);
+        }
+        .nav-rai .nav-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--margin-desktop);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-rai .nav-logo {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-body);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-rai .nav-logo img {
+            height: 32px;
+            width: auto;
+            display: block;
+        }
+        .nav-rai .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-rai .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .nav-rai .nav-links a:hover,
+        .nav-rai .nav-links a.active {
+            color: var(--accent-light);
+        }
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 24px;
+            background: var(--text-body);
+            color: var(--primary);
+            border-radius: var(--radius-btn);
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: var(--transition);
+        }
+        .nav-cta:hover {
+            background: var(--accent-light);
+            color: var(--tertiary-container);
+            box-shadow: 0 0 20px rgba(167,125,37,0.15);
+        }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid rgba(200,197,202,0.2);
+            border-radius: var(--radius);
+            padding: 8px;
+            color: var(--text-body);
+            cursor: pointer;
+        }
+        .nav-toggle svg { display: block; }
+
+        /* HERO DEMOCRATIZACION */
+        .white-strip {
+            background: var(--surface-container-lowest);
+            color: var(--primary);
+            padding: 120px var(--margin-desktop);
+        }
+        .hero-inner-rai {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .hero-text-col {
+            text-align: left;
+        }
+        .hero-text-col h1 {
+            font-family: var(--font-display);
+            font-size: 72px;
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            color: var(--primary);
+            margin: 0 0 20px;
+        }
+        .hero-text-col h1 .accent {
+            font-style: italic;
+            color: #8B6914 !important;
+        }
+        .hero-text-col p {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #1c1c1a;
+            margin: 0 0 36px;
+        }
+        .hero-actions-col {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: var(--primary);
+            color: var(--on-primary);
+            border-radius: var(--radius-btn);
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: var(--transition);
+        }
+        .btn-primary:hover {
+            background: var(--accent-light);
+            color: var(--tertiary-container);
+            box-shadow: 0 0 20px rgba(167,125,37,0.15);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            padding: 16px 32px;
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid rgba(0,0,0,0.15);
+            border-radius: var(--radius-btn);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: var(--transition);
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent-light);
+            color: var(--accent-light);
+        }
+        .hero-video-col {
+            width: 100%;
+        }
+        .hero-video-wrap {
+            width: 100%;
+        }
+        .hero-video-wrap .hero-video {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 24px 48px -12px rgba(0,0,0,0.15);
+            position: relative;
+            background: #000;
+        }
+        .hero-video-wrap .hero-video video {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+        .hero-video-wrap .hero-video .play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.3);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .hero-video-wrap .hero-video .play-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .sound-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        .sound-btn:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* SISTEMAS INTELIGENTES */
+        .sistemas-rai {
+            padding: 100px var(--margin-desktop);
+            max-width: var(--container-max);
+            margin: 0 auto;
+            text-align: center;
+        }
+        .sistemas-rai h2 {
+            font-family: var(--font-display);
+            font-size: 56px;
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--text-body);
+            max-width: 900px;
+            margin: 0 auto 16px;
+        }
+        .sistemas-rai h2 .accent {
+            color: var(--accent-light);
+        }
+        .sistemas-rai p {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* ESENCIA / MANIFIESTO */
+        .esencia-rai {
+            padding: var(--section-gap) var(--margin-desktop);
+            border-top: 1px solid rgba(200,197,202,0.1);
+            border-bottom: 1px solid rgba(200,197,202,0.1);
+        }
+        .esencia-rai .esencia-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gutter);
+            align-items: center;
+        }
+        .esencia-rai .esencia-text {
+            max-width: 560px;
+        }
+        .esencia-rai .esencia-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 8px;
+        }
+        .esencia-rai h3 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--text-body);
+            margin-bottom: 12px;
+        }
+        .esencia-rai p {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        .esencia-rai p strong {
+            color: var(--accent-light);
+        }
+        .esencia-rai .esencia-author {
+            margin-top: 16px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--on-primary-container);
+        }
+        .esencia-rai .esencia-visual {
+            width: 100%;
+            aspect-ratio: 4/3;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            background: var(--surface-container);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            border: 1px solid rgba(200,197,202,0.2);
+        }
+        .esencia-rai .esencia-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* BENTO - NUEVA REALIDAD */
+        .bento-rai {
+            padding: var(--section-gap) var(--margin-desktop);
+            background: var(--surface-container-lowest);
+            color: var(--primary);
+            max-width: 100%;
+        }
+        .bento-rai .bento-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        .bento-rai .bento-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .bento-rai .bento-header h2 {
+            font-family: var(--font-display);
+            font-size: 56px;
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            max-width: 1000px;
+            margin: 0 auto;
+            color: var(--primary);
+        }
+        .bento-rai .bento-header h2 .accent {
+            color: var(--on-tertiary-container);
+        }
+        .bento-rai .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+        }
+        .bento-card {
+            background: rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            transition: var(--transition);
+        }
+        .bento-card:hover {
+            border-color: var(--on-tertiary-container);
+            box-shadow: 0 0 24px rgba(167,125,37,0.08);
+        }
+        .bento-card .bento-icon {
+            font-size: 28px;
+            color: var(--on-tertiary-container);
+            margin-bottom: 12px;
+            display: block;
+        }
+        .bento-card p {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.3;
+            color: var(--primary);
+        }
+        .bento-card.col-span-2 {
+            grid-column: span 2;
+        }
+
+        /* SERVICIOS */
+        .servicios-rai {
+            padding: var(--section-gap) var(--margin-desktop);
+            border-top: 1px solid rgba(200,197,202,0.1);
+            border-bottom: 1px solid rgba(200,197,202,0.1);
+        }
+        .servicios-rai .servicios-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        .servicios-rai .servicios-header {
+            text-align: center;
+            margin-bottom: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .servicios-rai .servicios-header h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            color: var(--text-body);
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .servicios-rai .servicios-header a {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-light);
+            padding-bottom: 4px;
+            transition: var(--transition);
+        }
+        .servicios-rai .servicios-header a:hover {
+            color: var(--accent-light);
+            border-color: var(--accent-light);
+        }
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(200,197,202,0.08);
+            border: 1px solid rgba(200,197,202,0.08);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        .servicio-card {
+            background: var(--surface);
+            padding: 32px 28px;
+            transition: var(--transition);
+        }
+        .servicio-card:hover {
+            background: rgba(255,255,255,0.02);
+        }
+        .servicio-card .servicio-icon {
+            font-size: 24px;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+            display: block;
+        }
+        .servicio-card h3 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 6px;
+            color: var(--text-body);
+        }
+        .servicio-card p {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+
+        /* FILOSOFIA */
+        .filosofia-rai {
+            padding: var(--section-gap) var(--margin-desktop);
+            background: var(--surface-container-lowest);
+            color: var(--primary);
+            text-align: center;
+            max-width: 100%;
+        }
+        .filosofia-rai .filosofia-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .filosofia-rai h2 {
+            font-family: var(--font-display);
+            font-size: 56px;
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+        .filosofia-rai .filosofia-desc {
+            font-size: 24px;
+            font-weight: 300;
+            color: #1c1c1a;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+        .filosofia-rai .filosofia-desc:last-child {
+            margin-bottom: 0;
+        }
+
+        /* PROCESO */
+        .proceso-rai {
+            padding: var(--section-gap) var(--margin-desktop);
+            background: var(--surface-container-lowest);
+            color: var(--primary);
+            max-width: 100%;
+        }
+        .proceso-rai .proceso-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        .proceso-rai .proceso-header {
+            margin-bottom: 40px;
+        }
+        .proceso-rai .proceso-header h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            max-width: 600px;
+            color: var(--primary);
+        }
+        .proceso-rai .proceso-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .proceso-step .step-num {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 300;
+            color: #8B6914;
+            opacity: 0.35;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        .proceso-step h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--primary);
+        }
+        .proceso-step p {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #1c1c1a;
+        }
+
+        /* CTA */
+        .cta-rai {
+            padding: var(--section-gap) var(--margin-desktop);
+            background: var(--surface-container-lowest);
+            color: var(--primary);
+            text-align: center;
+            max-width: 100%;
+        }
+        .cta-rai .cta-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .cta-rai h2 {
+            font-family: var(--font-display);
+            font-size: 56px;
+            font-weight: 300;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+        .cta-rai .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            background: var(--primary);
+            color: var(--on-primary);
+            border-radius: var(--radius-btn);
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .cta-rai .cta-btn:hover {
+            background: var(--on-tertiary-container);
+            color: var(--surface-container-lowest);
+            box-shadow: 0 0 24px rgba(167,125,37,0.2);
+        }
+
+        /* FOOTER */
+        .footer-rai {
+            padding: var(--section-gap) var(--margin-desktop) 40px;
+            background: var(--surface-container-lowest);
+            color: var(--primary);
+            max-width: 100%;
+        }
+        .footer-rai .footer-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 48px;
+        }
+        .footer-rai .footer-brand .footer-logo {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-rai .footer-brand .footer-logo img {
+            height: 28px;
+            width: auto;
+        }
+        .footer-rai .footer-brand p {
+            font-size: 14px;
+            color: #1c1c1a;
+            line-height: 1.6;
+            max-width: 320px;
+        }
+        .footer-rai .social-links {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .footer-rai .social-links a {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1c1c1a;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .footer-rai .social-links a:hover {
+            border-color: var(--on-tertiary-container);
+            color: var(--on-tertiary-container);
+        }
+        .footer-rai .social-links a svg { width: 12px; height: 12px; }
+        .footer-rai h5 {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .footer-rai .footer-links { list-style: none; }
+        .footer-rai .footer-links li { margin-bottom: 10px; }
+        .footer-rai .footer-links a {
+            color: #1c1c1a;
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+        .footer-rai .footer-links a:hover { color: var(--on-tertiary-container); }
+        .footer-rai .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 14px;
+            font-size: 14px;
+            color: #1c1c1a;
+        }
+        .footer-rai .footer-contact-item svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            margin-top: 3px;
+            color: var(--on-tertiary-container);
+        }
+        .footer-rai .footer-contact-item a {
+            color: #1c1c1a;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-rai .footer-contact-item a:hover { color: var(--on-tertiary-container); }
+        .footer-rai .footer-bottom {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            text-align: center;
+            font-size: 12px;
+            color: #1c1c1a;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .white-strip { padding: 80px 24px; }
+            .hero-inner-rai {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-text-col {
+                text-align: center;
+            }
+            .hero-text-col h1 {
+                font-size: 48px;
+            }
+            .hero-text-col p {
+                font-size: 18px;
+                margin-bottom: 24px;
+            }
+            .hero-actions-col {
+                justify-content: center;
+            }
+            .sistemas-rai { padding: 80px 24px; }
+            .sistemas-rai h2 { font-size: 42px; }
+            .esencia-rai { padding: 80px 24px; }
+            .esencia-rai .esencia-inner { grid-template-columns: 1fr; }
+            .esencia-rai .esencia-text { max-width: 100%; }
+            .bento-rai { padding: 80px 24px; }
+            .bento-rai .bento-header h2 { font-size: 42px; }
+            .bento-rai .bento-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+            .bento-card.col-span-2 { grid-column: span 1; }
+            .servicios-rai { padding: 80px 24px; }
+            .servicios-rai .servicios-header { flex-direction: column; align-items: center; gap: 16px; }
+            .servicios-grid { grid-template-columns: 1fr 1fr; }
+            .filosofia-rai { padding: 80px 24px; }
+            .filosofia-rai h2 { font-size: 42px; }
+            .proceso-rai { padding: 80px 24px; }
+            .proceso-rai .proceso-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+            .cta-rai { padding: 80px 24px; }
+            .cta-rai h2 { font-size: 36px; }
+            .footer-rai { padding: 80px 24px 24px; }
+            .footer-rai .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .nav-rai .nav-inner { padding: 0 24px; }
+        }
+        @media (max-width: 768px) {
+            .nav-rai { padding: 12px 0; }
+            .nav-rai .nav-links { display: none; }
+            .nav-rai .nav-cta { display: none; }
+            .nav-toggle { display: block; }
+            .nav-rai .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(27,27,29,0.98);
+                padding: 24px;
+                border-bottom: 1px solid rgba(200,197,202,0.1);
+                gap: 16px;
+                align-items: stretch;
+            }
+            .nav-rai .nav-links.open .nav-cta-mobile {
+                display: inline-flex;
+                justify-content: center;
+                margin-top: 8px;
+            }
+            .white-strip { padding: 60px 24px; }
+            .hero-text-col h1 { font-size: 36px; }
+            .hero-text-col p { font-size: 16px; }
+            .sistemas-rai { padding: 60px 24px; }
+            .sistemas-rai h2 { font-size: 32px; }
+            .sistemas-rai p { font-size: 16px; }
+            .bento-rai .bento-grid { grid-template-columns: 1fr; gap: 16px; }
+            .bento-card p { font-size: 18px; }
+            .bento-card { padding: 20px; }
+            .servicios-grid { grid-template-columns: 1fr; }
+            .servicio-card { padding: 24px 20px; }
+            .proceso-rai .proceso-grid { grid-template-columns: 1fr; gap: 16px; }
+            .proceso-step .step-num { font-size: 36px; }
+            .footer-rai .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+        }
+        @media (min-width: 769px) {
+            .nav-rai .nav-links .nav-cta-mobile { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav-rai" id="navRai">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="https://vendiendoeninternet.com/imagenes/Logo/logorodasai.svg" alt="Rodas AI">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="servicios.html">Soluciones</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="https://wa.me/595986467299" target="_blank" class="nav-cta nav-cta-mobile">Solicitar auditoría privada</a></li>
+            </ul>
+            <a href="https://wa.me/595986467299" target="_blank" class="nav-cta">Solicitar auditoría privada</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menú">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- WHITE STRIP: headline + video + buttons -->
+    <div class="white-strip">
+        <div class="hero-inner-rai">
+            <div class="hero-text-col fade-in">
+                <h1>Lo extraordinario<br><span class="accent">ya no es exclusivo.</span></h1>
+                <p>Ayudamos a emprendedores y dueños de negocios a incorporar capacidades de comunicación impulsadas por inteligencia artificial que antes solo estaban reservadas para las grandes marcas.</p>
+                <div class="hero-actions-col">
+                    <a href="servicios.html" class="btn-primary">Explorar soluciones</a>
+                </div>
+            </div>
+            <div class="hero-video-col fade-in">
+                <div class="hero-video-wrap">
+                    <div class="hero-video" id="heroVideo">
+                        <video autoplay muted loop playsinline preload="metadata" id="mainVideo">
+                            <source src="https://vendiendoeninternet.com/videos/VideoHomeHeroOK.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-overlay" id="playOverlay">
+                            <div class="sound-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                                Activar sonido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SISTEMAS INTELIGENTES -->
+    <section class="sistemas-rai">
+        <div class="fade-in">
+            <h2>Sistemas Inteligentes <span class="accent">de Comunicación.</span></h2>
+            <p>La inteligencia artificial trabaja silenciosamente detrás de una experiencia impecable. Ahora tu negocio puede operar al nivel de las mejores marcas del mundo.</p>
+        </div>
+    </section>
+
+
+
+    <!-- NUEVA REALIDAD (BENTO) -->
+    <section class="bento-rai">
+        <div class="bento-inner">
+        <div class="bento-header fade-in">
+            <h2>La diferencia ya no está en el tamaño de un negocio. Está en las <span class="accent">capacidades</span> que incorpora.</h2>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-card fade-in">
+                <span class="bento-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </span>
+                <p>Hoy un negocio puede responder las 24 horas del día</p>
+            </div>
+            <div class="bento-card col-span-2 fade-in">
+                <span class="bento-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </span>
+                <p>Presentar nuevos productos con un portavoz digital de nivel mundial</p>
+            </div>
+            <div class="bento-card col-span-2 fade-in">
+                <span class="bento-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </span>
+                <p>Analizar cada interacción para optimizar la toma de decisiones estratégicas</p>
+            </div>
+            <div class="bento-card fade-in">
+                <span class="bento-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </span>
+                <p>Personalizar la experiencia para cada cliente de forma masiva</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="servicios-rai" id="servicios">
+        <div class="servicios-inner">
+            <div class="servicios-header fade-in">
+                <h2>Soluciones para distintos desafíos<br>de comunicación en tu negocio.</h2>
+                <a href="servicios.html">Ver todas las soluciones</a>
+            </div>
+            <div class="servicios-grid fade-in">
+                <div class="servicio-card">
+                    <span class="servicio-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </span>
+                    <h3>Atención Inteligente</h3>
+                    <p>Resolución de dudas y soporte las 24 horas con la voz de tu marca.</p>
+                </div>
+                <div class="servicio-card">
+                    <span class="servicio-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </span>
+                    <h3>Presencia Profesional</h3>
+                    <p>Identidad digital y portavoces que elevan la percepción de confianza.</p>
+                </div>
+                <div class="servicio-card">
+                    <span class="servicio-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                    </span>
+                    <h3>Comunicación Audiovisual</h3>
+                    <p>Producción de contenido dinámico impulsado por IA para redes y web.</p>
+                </div>
+                <div class="servicio-card">
+                    <span class="servicio-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    </span>
+                    <h3>Automatización</h3>
+                    <p>Flujos de trabajo que eliminan las tareas repetitivas en tu negocio.</p>
+                </div>
+                <div class="servicio-card">
+                    <span class="servicio-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </span>
+                    <h3>Experiencias Conversacionales</h3>
+                    <p>Diseño de chats que realmente comprenden y ayudan a tus clientes.</p>
+                </div>
+                <div class="servicio-card">
+                    <span class="servicio-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                    </span>
+                    <h3>Producción Profesional</h3>
+                    <p>Sonido y voz sintética de alta fidelidad para manuales y formación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILOSOFIA -->
+    <section class="filosofia-rai">
+        <div class="filosofia-inner">
+            <div class="fade-in">
+                <h2>Nuestra Filosofía</h2>
+                <p class="filosofia-desc">La tecnología cambia todos los días, la confianza tarda años en construirse.</p>
+                <p class="filosofia-desc">Monitoreamos cada avance tecnológico y lo ponemos al servicio de tu negocio, transformando cada cambio en una ventaja competitiva.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section class="proceso-rai">
+        <div class="proceso-inner">
+            <div class="proceso-header fade-in">
+                <h2>Un proceso diseñado para la excelencia de tu negocio.</h2>
+            </div>
+            <div class="proceso-grid">
+                <div class="proceso-step fade-in">
+                    <div class="step-num">01</div>
+                    <h3>Comprendemos</h3>
+                    <p>Analizamos tus objetivos actuales y los desafíos de comunicación que limitan tu crecimiento.</p>
+                </div>
+                <div class="proceso-step fade-in">
+                    <div class="step-num">02</div>
+                    <h3>Diseñamos</h3>
+                    <p>Creamos una arquitectura de IA personalizada que se adapta orgánicamente a tu marca.</p>
+                </div>
+                <div class="proceso-step fade-in">
+                    <div class="step-num">03</div>
+                    <h3>Implementamos</h3>
+                    <p>Ejecutamos la integración técnica asegurando que tu equipo esté alineado y empoderado.</p>
+                </div>
+                <div class="proceso-step fade-in">
+                    <div class="step-num">04</div>
+                    <h3>Evolucionamos</h3>
+                    <p>Monitorizamos y optimizamos el sistema continuamente para mantener tu ventaja competitiva.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-rai">
+        <div class="cta-inner fade-in">
+            <h2>La forma en que un negocio se comunica influye directamente en la forma en que el mercado lo percibe.</h2>
+            <a href="https://wa.me/595986467299?text=Quiero%20una%20consultoria" class="cta-btn" target="_blank">Solicitar auditoría privada</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-rai">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="https://vendiendoeninternet.com/imagenes/Logo/logorodasai.svg" alt="Rodas AI">
+                </div>
+                <p>Diseñamos sistemas inteligentes de comunicación para empresas. Arquitectura de marcas digitales con tecnología de vanguardia.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/rodasproduccionespy" target="_blank" aria-label="Facebook">
+                        <svg viewBox="0 0 32 32" fill="currentColor"><path d="m23.446 18 .889-5.791h-5.557V8.451c0-1.584.776-3.129 3.265-3.129h2.526V.392S22.277.001 20.085.001c-4.576 0-7.567 2.774-7.567 7.795v4.414H7.431v5.791h5.087v14h6.26v-14z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/rodasproduccionespy" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 32 32" fill="currentColor"><path d="M20.445 5h-8.891A6.559 6.559 0 0 0 5 11.554v8.891A6.559 6.559 0 0 0 11.554 27h8.891a6.56 6.56 0 0 0 6.554-6.555v-8.891A6.557 6.557 0 0 0 20.445 5zm4.382 15.445a4.382 4.382 0 0 1-4.382 4.382h-8.891a4.383 4.383 0 0 1-4.382-4.382v-8.891a4.383 4.383 0 0 1 4.382-4.382h8.891a4.383 4.383 0 0 1 4.382 4.382zM16 10.5a5.5 5.5 0 1 0 5.5 5.5A5.507 5.507 0 0 0 16 10.5zm0 9a3.5 3.5 0 1 1 3.5-3.5 3.504 3.504 0 0 1-3.5 3.5zm5.5-9.75a1.25 1.25 0 1 0 2.5 0 1.25 1.25 0 0 0-2.5 0z"/></svg>
+                    </a>
+                    <a href="https://tiktok.com/@rodasproduccionespy" target="_blank" aria-label="TikTok">
+                        <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.708.027C18.453 0 20.188.016 21.921 0c.105 2.041.839 4.12 2.333 5.563 1.491 1.479 3.6 2.156 5.652 2.385v5.369c-1.923-.073-3.855-.573-5.495-1.708-.771-.521-1.516-1.208-2.208-1.877-.021 3.748.011 7.5-.021 11.247a14.343 14.343 0 0 1-6.849 11.989c-4.104 2.676-9.692 2.312-13.307-.479-3.936-3.032-5.66-8.532-4.168-13.277A13.928 13.928 0 0 1 16.708.027z"/></svg>
+                    </a>
+                    <a href="https://youtube.com/@rodasproduccionespy" target="_blank" aria-label="YouTube">
+                        <svg viewBox="0 0 512 512" fill="currentColor"><path d="M456.035 10.769c22.031 5.926 39.377 23.386 45.265 45.56C512 96.516 512 180.363 512 180.363s0 83.846-10.7 124.037c-5.888 22.17-23.234 39.631-45.265 45.559-39.928 10.767-200.034 10.767-200.034 10.767s-160.107 0-200.035-10.767C33.937 344.031 16.587 326.57 10.7 304.4 0 264.209 0 180.363 0 180.363S0 96.516 10.7 56.329c5.887-22.174 23.237-39.634 45.266-45.56C95.894 0 256.001 0 256.001 0s160.106 0 200.034 10.769zM203.637 256l133.818-76.122L203.637 103.747V256z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h5>Navegación</h5>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Soluciones</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Contacto</h5>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 512 512" fill="currentColor"><path d="M256 48C141.12 48 48 141.12 48 256s93.12 208 208 208 208-93.12 208-208S370.88 48 256 48zm0 384c-97.04 0-176-78.96-176-176S158.96 80 256 80s176 78.96 176 176-78.96 176-176 176z"/><path d="M256 128c-70.69 0-128 57.31-128 128s57.31 128 128 128 128-57.31 128-128-57.31-128-128-128zm0 208c-44.11 0-80-35.89-80-80s35.89-80 80-80 80 35.89 80 80-35.89 80-80 80z"/></svg>
+                    <span>De las cordilleras 131</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 512 512" fill="currentColor"><path d="M256.064 0h-.128C114.784 0 0 114.816 0 256c0 56 18.048 107.904 48.736 150.048l-31.904 95.104 98.4-31.456C155.712 496.512 204 512 256.064 512 397.216 512 512 397.152 512 256S397.216 0 256.064 0z"/></svg>
+                    <a href="https://wa.me/595986467299" target="_blank">+595 986 467 299</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 512 512" fill="currentColor"><path d="M424 80H48a24 24 0 0 0-24 24v304a24 24 0 0 0 24 24h376a24 24 0 0 0 24-24V104a24 24 0 0 0-24-24zm-4 48v19.4L236 280.8 52 147.4V128zM52 344V199.8l184 133.4 184-133.4V344z"/></svg>
+                    <a href="mailto:info@rodasproducciones.com">info@rodasproducciones.com</a>
+                </div>
+            </div>
+            <div>
+                <h5>Ubicación</h5>
+                <p style="font-size:14px;color:#1c1c1a;line-height:1.6;">De las cordilleras 131 c/ Independencia Nacional</p>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Rodas AI. Todos los derechos reservados.</div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/config.local.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script>
+        // Nav scroll
+        var nav = document.getElementById('navRai');
+        if (nav) {
+            document.addEventListener('scroll', function() {
+                nav.classList.toggle('scrolled', window.scrollY > 50);
+            });
+        }
+
+        // Mobile toggle
+        var toggle = document.getElementById('navToggle');
+        var links = document.getElementById('navLinks');
+        if (toggle && links) {
+            toggle.addEventListener('click', function() {
+                links.classList.toggle('open');
+            });
+        }
+
+        // Video play overlay & Activar sonido
+        var video = document.getElementById('mainVideo');
+        var overlay = document.getElementById('playOverlay');
+        if (video && overlay) {
+            overlay.addEventListener('click', function() {
+                video.muted = false;
+                video.currentTime = 0;
+                video.play();
+                overlay.classList.add('hidden');
+                video.setAttribute('controls', 'true');
+            });
+        }
+
+        // IntersectionObserver fade-in
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(function(el) {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
+
