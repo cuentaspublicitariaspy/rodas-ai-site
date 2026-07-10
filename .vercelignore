@@ -1,14 +1,12 @@
-# Rodas AI
-js/config.local.js
-
-# Large files (exceed GitHub limits)
+# Large files
 RodasAI-Identidad de marca.zip
 multimedia/homeherovideo.mp4
-*.zip
 
 # Unnecessary directories
 no subir/
 video home hero/
 RodasAI-Identidad de marca/
 
-.vercel
+# Reference design files
+stitch_real_time_presence_tracker/
+stitch_real_time_presence_tracker mobil/

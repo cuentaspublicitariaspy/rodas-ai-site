@@ -612,7 +612,7 @@ IMPORTANTE:
     panel.innerHTML = `
       <div class="rp-chat-header">
         <div class="rp-avatar" style="overflow:hidden;">
-          <img src="https://vendiendoeninternet.com/imagenes/Logo/LogoSoloRodasAI.svg" alt="" style="width:100%;height:100%;object-fit:cover;">
+          <img src="multimedia/LogoSoloRodasAI.svg" alt="" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="rp-info">
           <strong>Rodas AI</strong>
