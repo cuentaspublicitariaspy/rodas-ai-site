@@ -55,7 +55,7 @@
             --transition: 300ms ease-out;
             --font-display: 'Manrope', sans-serif;
             --font-body: 'Manrope', sans-serif;
-            --section-gap: 100px;
+            --section-gap: 80px;
             --margin-desktop: 80px;
             --margin-mobile: 24px;
             --container-max: 1440px;
@@ -70,6 +70,7 @@
             display: flex;
             flex-direction: column;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
         .fade-in {
             opacity: 0;
@@ -1080,57 +1081,59 @@
 
         /* RESPONSIVE */
         @media (max-width: 1024px) {
-            .white-strip { padding: 80px 24px; }
+            .white-strip { padding: 60px 24px; }
             .hero-inner-rai {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 32px;
             }
             .hero-text-col {
                 text-align: center;
             }
             .hero-text-col h1 {
-                font-size: 48px;
+                font-size: 42px;
             }
             .hero-text-col p {
-                font-size: 18px;
-                margin-bottom: 24px;
+                font-size: 17px;
+                margin-bottom: 20px;
             }
             .hero-actions-col {
                 justify-content: center;
             }
-            .sistemas-rai { min-height: auto; }
-            .sist-content { padding: 72px 40px; }
-            .sist-content h2 { font-size: 54px; }
-            .sist-content .sist-text { font-size: 21px; }
-            .sist-content .sist-divider { margin: 36px 0 36px; }
-            .esencia-rai { padding: 80px 24px; }
+            .esencia-rai { padding: 48px 24px; }
             .esencia-rai .esencia-inner { grid-template-columns: 1fr; }
             .esencia-rai .esencia-text { max-width: 100%; }
             .sistemas-rai { min-height: auto; }
-            .sist-content { padding: 56px 24px; }
-            .sist-content h2 { font-size: 42px; }
-            .sist-content .sist-text { font-size: 18px; }
-            .sist-content .sist-divider { margin: 24px 0 24px; width: 72px; }
-            .bento-rai { padding: 80px 24px; }
-            .bento-rai .bento-header h2 { font-size: 42px; }
-            .bento-rai .bento-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+            .sist-content { padding: 48px 24px; }
+            .sist-content h2 { font-size: 38px; }
+            .sist-content .sist-text { font-size: 17px; }
+            .sist-content .sist-divider { margin: 20px 0 20px; width: 64px; }
+            .bento-rai { padding: 60px 24px; }
+            .bento-rai .bento-header { margin-bottom: 24px; }
+            .bento-rai .bento-header h2 { font-size: 36px; }
+            .bento-rai .bento-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
             .bento-card.col-span-2 { grid-column: span 1; }
-            .servicios-rai { padding: 80px 24px; }
-            .servicios-rai .servicios-header { flex-direction: column; align-items: center; gap: 16px; }
-            .servicios-grid { grid-template-columns: 1fr 1fr; }
-            .filosofia-rai { padding: 80px 24px; }
-            .filosofia-rai h2 { font-size: 42px; }
-            .proceso-rai { padding: 80px 24px; }
-            .proceso-rai .proceso-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
-            .cta-rai { padding: 80px 24px; }
-            .cta-rai h2 { font-size: 36px; }
-            .footer-rai { padding: 80px 24px 24px; }
-            .footer-rai .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
-            .footer-rai .footer-map { height: 120px; }
+            .bento-card { padding: 28px; }
+            .bento-card p { font-size: 18px; }
+            .servicios-rai { padding: 60px 24px; }
+            .servicios-rai .servicios-header { flex-direction: column; align-items: center; gap: 12px; }
+            .servicios-rai .servicios-header h2 { font-size: 38px; }
+            .servicios-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .filosofia-rai { padding: 48px 24px; }
+            .filosofia-rai h2 { font-size: 36px; margin-bottom: 12px; }
+            .filosofia-rai .filosofia-desc { font-size: 18px; margin-bottom: 12px; }
+            .proceso-rai { padding: 48px 24px; }
+            .proceso-rai .proceso-header { margin-bottom: 28px; }
+            .proceso-rai .proceso-header h2 { font-size: 32px; }
+            .proceso-rai .proceso-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+            .cta-rai { padding: 60px 24px; }
+            .cta-rai h2 { font-size: 32px; }
+            .footer-rai { padding: 60px 24px 24px; }
+            .footer-rai .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+            .footer-rai .footer-map { height: 100px; }
             .nav-rai .nav-inner { padding: 0 24px; }
         }
         @media (max-width: 768px) {
-            .nav-rai { padding: 12px 0; }
+            .nav-rai { padding: 10px 0; }
             .nav-rai .nav-links { display: none; }
             .nav-rai .nav-cta { display: none; }
             .nav-toggle { display: block; }
@@ -1142,9 +1145,9 @@
                 left: 0;
                 right: 0;
                 background: rgba(27,27,29,0.98);
-                padding: 24px;
+                padding: 20px;
                 border-bottom: 1px solid rgba(200,197,202,0.1);
-                gap: 16px;
+                gap: 12px;
                 align-items: stretch;
             }
             .nav-rai .nav-links.open .nav-cta-mobile {
@@ -1152,22 +1155,120 @@
                 justify-content: center;
                 margin-top: 8px;
             }
-            .white-strip { padding: 60px 24px; }
-            .hero-text-col h1 { font-size: 36px; }
-            .hero-text-col p { font-size: 16px; }
-
-            .bento-rai .bento-grid { grid-template-columns: 1fr; gap: 16px; }
-            .bento-card p { font-size: 18px; }
-            .bento-card { padding: 20px; }
-            .servicios-grid { grid-template-columns: 1fr; }
-            .servicio-card { padding: 24px 20px; }
+            .white-strip { padding: 48px 20px 56px; }
+            .hero-inner-rai { gap: 24px; }
+            .hero-text-col h1 { font-size: 32px; }
+            .hero-text-col p { font-size: 15px; margin-bottom: 16px; }
+            .hero-video-wrap .hero-video { border-radius: var(--radius); }
+            .bento-rai { padding: 48px 20px; }
+            .bento-rai .bento-header h2 { font-size: 28px; }
+            .bento-rai .bento-header { margin-bottom: 16px; }
+            .bento-rai .bento-grid { grid-template-columns: 1fr; gap: 12px; }
+            .bento-card { padding: 18px; }
+            .bento-card p { font-size: 16px; }
+            .bento-card .bento-icon { margin-bottom: 6px; }
+            .esencia-rai { padding: 40px 20px; }
+            .esencia-rai h3 { font-size: 28px; }
+            .esencia-rai p { font-size: 16px; }
+            .sistemas-rai { min-height: auto; }
+            .sist-content { padding: 40px 20px; }
+            .sist-content h2 { font-size: 30px; }
+            .sist-content .sist-text { font-size: 16px; }
+            .sist-divider { margin: 16px 0 16px; width: 48px; }
+            .servicios-rai { padding: 48px 20px; }
+            .servicios-rai .servicios-header h2 { font-size: 30px; }
+            .servicios-grid { grid-template-columns: 1fr; gap: 12px; }
+            .servicio-card { padding: 20px 16px; }
+            .servicio-card h3 { font-size: 18px; }
+            .srv-search { margin: 0 auto 20px; }
+            .srv-filters { margin: 20px 0; gap: 6px; }
+            .srv-filters button { font-size: 10px; padding: 6px 14px; }
             .srv-modal .modal-body .modal-row { grid-template-columns: 1fr; }
-            .proceso-rai .proceso-grid { grid-template-columns: 1fr; gap: 16px; }
-            .proceso-step .step-num { font-size: 36px; }
-            .footer-rai .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+            .filosofia-rai { padding: 40px 20px; }
+            .filosofia-rai h2 { font-size: 28px; }
+            .filosofia-rai .filosofia-desc { font-size: 16px; }
+            .proceso-rai { padding: 40px 20px; }
+            .proceso-rai .proceso-header h2 { font-size: 26px; }
+            .proceso-rai .proceso-grid { grid-template-columns: 1fr; gap: 12px; }
+            .proceso-step .step-num { font-size: 32px; }
+            .cta-rai { padding: 48px 20px; }
+            .cta-rai h2 { font-size: 26px; margin-bottom: 16px; }
+            .cta-rai .cta-btn { padding: 14px 28px; font-size: 13px; }
+            .footer-rai { padding: 48px 20px 80px; }
+            .footer-rai .footer-inner { grid-template-columns: 1fr; gap: 20px; }
+            body { padding-bottom: 64px; }
         }
         @media (min-width: 769px) {
             .nav-rai .nav-links .nav-cta-mobile { display: none; }
+        }
+
+        /* BOTTOM MOBILE NAV */
+        .mobile-bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1020;
+            background: rgba(27,27,29,0.96);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(200,197,202,0.08);
+            padding: 6px 0 env(safe-area-inset-bottom, 6px);
+        }
+        .mobile-bottom-nav .mbn-inner {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .mobile-bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            padding: 6px 12px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+        .mobile-bottom-nav a svg {
+            width: 20px;
+            height: 20px;
+        }
+        .mobile-bottom-nav a.active,
+        .mobile-bottom-nav a:hover {
+            color: var(--accent-light);
+        }
+        @media (max-width: 768px) {
+            .mobile-bottom-nav { display: block; }
+        }
+
+        /* SERVICE CARD BULLETS */
+        .servicio-card .srv-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+        .servicio-card .srv-bullets li {
+            font-size: 13px;
+            color: #555;
+            padding: 3px 0 3px 18px;
+            position: relative;
+            line-height: 1.5;
+        }
+        .servicio-card .srv-bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--on-tertiary-container);
         }
     </style>
 </head>
@@ -1184,9 +1285,9 @@
                 <li><a href="servicios.html">Soluciones</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="faq.html">FAQ</a></li>
-                <li><a href="https://wa.me/595986467299" target="_blank" class="nav-cta nav-cta-mobile">Solicitar auditoría privada</a></li>
+                <li><a href="https://wa.me/595986467299" target="_blank" class="nav-cta nav-cta-mobile">Agendar diagnóstico privado</a></li>
             </ul>
-            <a href="https://wa.me/595986467299" target="_blank" class="nav-cta">Solicitar auditoría privada</a>
+            <a href="https://wa.me/595986467299" target="_blank" class="nav-cta">Agendar diagnóstico privado</a>
             <button class="nav-toggle" id="navToggle" aria-label="Menú">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 6h16M4 12h16M4 18h16"/>
@@ -1250,7 +1351,7 @@
                 <span class="bento-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                 </span>
-                <p>Hoy un negocio puede responder las 24 horas del día</p>
+                <p>Hoy un negocio puede responder las 24 horas del día en más de 70 idiomas</p>
             </div>
             <div class="bento-card col-span-2 fade-in">
                 <span class="bento-icon">
@@ -1278,7 +1379,7 @@
     <section class="servicios-rai" id="servicios">
         <div class="servicios-inner">
             <div class="servicios-header fade-in">
-                <h2>Portafolio de <span class="accent">Soluciones</span></h2>
+                <h2>Soluciones <span class="accent">Inteligentes</span></h2>
                 <p>Filtra nuestro catálogo y encuentra la solución ideal para automatizar y potenciar tu comunicación.</p>
                 <a href="servicios.html" class="srv-link">Ver todas las soluciones</a>
             </div>
@@ -1286,7 +1387,7 @@
             <div class="srv-filters fade-in" id="srvFilters">
                 <button class="active" data-cat="todos">Todos</button>
                 <button data-cat="conversacional">IA Conversacional</button>
-                <button data-cat="identidad">Identidad & Clones</button>
+                <button data-cat="identidad">Identidad de Marca</button>
                 <button data-cat="sitios">Sitios Web & Captación</button>
                 <button data-cat="audiovisual">Audio, Video & Jingles</button>
             </div>
@@ -1305,6 +1406,11 @@
                     <span class="srv-badge" style="background:rgba(139,105,20,0.1);color:var(--on-tertiary-container);">Soporte Web 24/7</span>
                     <h3>Chatbot Conversacional Inteligente</h3>
                     <p>Atiende las consultas de tus clientes desde tu sitio web, mantiene conversaciones naturales, responde en más de 70 idiomas y deriva la atención a una persona cuando es necesario.</p>
+                    <ul class="srv-bullets">
+                        <li>Atención 24/7 sin demoras ni horarios</li>
+                        <li>Responde en más de 70 idiomas</li>
+                        <li>Deriva automáticamente a un agente humano</li>
+                    </ul>
                     <div class="srv-ideal">
                         <span>Ideal para</span>
                         <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Integración inmediata en cualquier CMS o web HTML.</p>
@@ -1319,6 +1425,11 @@
                     <span class="srv-badge" style="background:rgba(16,185,129,0.1);color:#059669;">Automatización Móvil</span>
                     <h3>WhatsApp Conversacional Inteligente</h3>
                     <p>Responde automáticamente por WhatsApp las 24 horas, comprende las consultas de tus clientes, conversa en más de 70 idiomas y permite continuar la atención humana cuando se requiere.</p>
+                    <ul class="srv-bullets">
+                        <li>Automatización total de consultas por WhatsApp</li>
+                        <li>Conversa en más de 70 idiomas sin intervención</li>
+                        <li>Deriva a agentes humanos cuando es necesario</li>
+                    </ul>
                     <div class="srv-ideal">
                         <span>Ideal para</span>
                         <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Negocios de alta demanda, e-commerce y agencias.</p>
@@ -1333,6 +1444,11 @@
                     <span class="srv-badge" style="background:rgba(139,92,246,0.1);color:#7c3aed;">Portavoz Virtual</span>
                     <h3>Embajador Digital</h3>
                     <p>Un portavoz virtual profesional, con identidad propia, que representa a tu negocio y presenta tus productos, servicios y mensajes en más de 70 idiomas.</p>
+                    <ul class="srv-bullets">
+                        <li>Portavoz virtual con identidad y estilo propio</li>
+                        <li>Presenta productos y servicios en más de 70 idiomas</li>
+                        <li>Disponible 24/7 para catálogos y capacitación</li>
+                    </ul>
                     <div class="srv-ideal">
                         <span>Ideal para</span>
                         <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Videos de inducción, capacitaciones y catálogo de ventas.</p>
@@ -1347,6 +1463,11 @@
                     <span class="srv-badge" style="background:rgba(99,102,241,0.1);color:#6366f1;">Hiperrealismo Generativo</span>
                     <h3>Tu Clon Digital</h3>
                     <p>Una versión digital de vos mismo que conserva tu imagen, tu voz y tu forma de comunicar para crear contenidos en más de 70 idiomas.</p>
+                    <ul class="srv-bullets">
+                        <li>Conserva tu imagen, voz y forma de comunicar</li>
+                        <li>Crea contenido audiovisual en más de 70 idiomas</li>
+                        <li>Ideal para CEOs, mentores y creadores</li>
+                    </ul>
                     <div class="srv-ideal">
                         <span>Ideal para</span>
                         <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Creadores de contenido, directores ejecutivos y mentores.</p>
@@ -1361,6 +1482,11 @@
                     <span class="srv-badge" style="background:rgba(59,130,246,0.1);color:#3b82f6;">Infraestructura Corporativa</span>
                     <h3>Sitio Web Profesional</h3>
                     <p>Un sitio diseñado para reflejar la calidad de tu negocio, transmitir confianza y ofrecer una experiencia profesional desde el primer contacto.</p>
+                    <ul class="srv-bullets">
+                        <li>Diseño premium corporativo y moderno</li>
+                        <li>Optimizado para posicionamiento en buscadores</li>
+                        <li>Experiencia de usuario profesional e intuitiva</li>
+                    </ul>
                     <div class="srv-ideal">
                         <span>Ideal para</span>
                         <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Empresas en crecimiento que necesitan una sólida imagen digital.</p>
@@ -1375,6 +1501,11 @@
                     <span class="srv-badge" style="background:rgba(6,182,212,0.1);color:#0891b2;">Conversión & Leads</span>
                     <h3>Páginas de Captación de Clientes</h3>
                     <p>Páginas creadas para presentar una oferta específica, despertar interés y convertir visitantes en nuevas oportunidades comerciales.</p>
+                    <ul class="srv-bullets">
+                        <li>Enfocadas en conversión y generación de leads</li>
+                        <li>Diseñadas para campañas en Google y redes sociales</li>
+                        <li>Optimizadas para mobile y velocidad de carga</li>
+                    </ul>
                     <div class="srv-ideal">
                         <span>Ideal para</span>
                         <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Campañas publicitarias dirigidas en Google o Redes Sociales.</p>
@@ -1389,6 +1520,11 @@
                     <span class="srv-badge" style="background:rgba(239,68,68,0.1);color:#dc2626;">Multimedia</span>
                     <h3>Videos Profesionales</h3>
                     <p>Videos para presentar tu negocio, promocionar productos y servicios, comunicar ideas y fortalecer la percepción de tu marca.</p>
+                    <ul class="srv-bullets">
+                        <li>Producción estratégica para marca y productos</li>
+                        <li>Ideales para campañas corporativas y lanzamientos</li>
+                        <li>Formato optimizado para redes y sitio web</li>
+                    </ul>
                     <div class="srv-ideal">
                         <span>Ideal para</span>
                         <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Campañas corporativas, reels de impacto y lanzamientos.</p>
@@ -1403,6 +1539,11 @@
                     <span class="srv-badge" style="background:rgba(245,158,11,0.1);color:#d97706;">Locución Multilingüe</span>
                     <h3>Locución Profesional</h3>
                     <p>Voces profesionales para anuncios, videos, presentaciones y contenidos comerciales, disponibles en más de 70 idiomas.</p>
+                    <ul class="srv-bullets">
+                        <li>Voces profesionales en más de 70 idiomas</li>
+                        <li>Calidad broadcast para radio, TV y digital</li>
+                        <li>Locución corporativa y comercial multilingüe</li>
+                    </ul>
                     <div class="srv-ideal">
                         <span>Ideal para</span>
                         <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Anuncios radiales, spots de TV y videos de capacitación.</p>
@@ -1417,6 +1558,11 @@
                     <span class="srv-badge" style="background:rgba(16,185,129,0.1);color:#059669;">Globalización</span>
                     <h3>Traducción de Audio y Video</h3>
                     <p>Adaptación de contenidos a más de 70 idiomas, incluyendo traducción, doblaje y sincronización, conservando la naturalidad del mensaje y la identidad de la voz.</p>
+                    <ul class="srv-bullets">
+                        <li>Adaptación completa a más de 70 idiomas</li>
+                        <li>Doblaje y sincronización con inteligencia artificial</li>
+                        <li>Conserva la identidad y naturalidad de la voz</li>
+                    </ul>
                     <div class="srv-ideal">
                         <span>Ideal para</span>
                         <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Marcas que planean expandirse a mercados extranjeros.</p>
@@ -1431,6 +1577,11 @@
                     <span class="srv-badge" style="background:rgba(249,115,22,0.1);color:#ea580c;">Identidad Sonora</span>
                     <h3>Jingles Publicitarios</h3>
                     <p>Canciones originales creadas para comunicar, diferenciar y hacer que tu negocio sea más fácil de recordar por tus clientes o prospectos.</p>
+                    <ul class="srv-bullets">
+                        <li>Canciones originales para tu marca o campaña</li>
+                        <li>Diferenciación auditiva y alta recordación</li>
+                        <li>Composición profesional con identidad sonora única</li>
+                    </ul>
                     <div class="srv-ideal">
                         <span>Ideal para</span>
                         <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Lograr recordación de marca insuperable de forma auditiva.</p>
@@ -1523,9 +1674,31 @@
     <section class="cta-rai">
         <div class="cta-inner fade-in">
             <h2>La forma en que un negocio se comunica influye directamente en la forma en que el mercado lo percibe.</h2>
-            <a href="https://wa.me/595986467299?text=Quiero%20una%20consultoria" class="cta-btn" target="_blank">Solicitar auditoría privada</a>
+            <a href="https://wa.me/595986467299?text=Quiero%20una%20consultoria" class="cta-btn" target="_blank">Agendar diagnóstico privado</a>
         </div>
     </section>
+
+    <!-- MOBILE BOTTOM NAV -->
+    <nav class="mobile-bottom-nav">
+        <div class="mbn-inner">
+            <a href="index.html" class="active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Inicio
+            </a>
+            <a href="servicios.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Soluciones
+            </a>
+            <a href="nosotros.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Nosotros
+            </a>
+            <a href="https://wa.me/595986467299" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-.875-1.134-.412-2.013-.848-2.657-1.332-.621-.466-.77-.765-.86-.985-.088-.22-.01-.34.194-.54.193-.19.418-.404.567-.574.15-.17.18-.304.27-.507.09-.203.045-.38-.023-.532-.067-.152-.668-1.612-.916-2.207-.242-.579-.487-.5-.668-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Diagnóstico
+            </a>
+        </div>
+    </nav>
 
     <!-- FOOTER -->
     <footer class="footer-rai">
