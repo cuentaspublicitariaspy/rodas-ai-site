@@ -501,8 +501,9 @@
         /* SERVICIOS */
         .servicios-rai {
             padding: var(--section-gap) var(--margin-desktop);
-            border-top: 1px solid rgba(200,197,202,0.1);
-            border-bottom: 1px solid rgba(200,197,202,0.1);
+            background: var(--surface-container-lowest);
+            color: var(--primary);
+            max-width: 100%;
         }
         .servicios-rai .servicios-inner {
             max-width: var(--container-max);
@@ -510,74 +511,334 @@
         }
         .servicios-rai .servicios-header {
             text-align: center;
-            margin-bottom: 48px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+            margin-bottom: 16px;
         }
         .servicios-rai .servicios-header h2 {
             font-family: var(--font-display);
-            font-size: 40px;
-            font-weight: 400;
-            line-height: 1.25;
-            letter-spacing: -0.02em;
-            color: var(--text-body);
+            font-size: 56px;
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--primary);
             text-align: center;
-            max-width: 720px;
+            max-width: 800px;
             margin: 0 auto;
         }
-        .servicios-rai .servicios-header a {
+        .servicios-rai .servicios-header h2 .accent {
+            color: var(--on-tertiary-container);
+            font-style: italic;
+        }
+        .servicios-rai .servicios-header p {
+            font-size: 18px;
+            color: #1c1c1a;
+            margin-top: 12px;
+        }
+        .servicios-rai .servicios-header .srv-link {
+            display: inline-block;
+            margin-top: 20px;
             font-size: 12px;
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--accent-light);
+            color: var(--on-tertiary-container);
             text-decoration: none;
-            border-bottom: 1px solid var(--accent-light);
+            border-bottom: 1px solid var(--on-tertiary-container);
             padding-bottom: 4px;
             transition: var(--transition);
         }
-        .servicios-rai .servicios-header a:hover {
+        .servicios-rai .servicios-header .srv-link:hover {
             color: var(--accent-light);
             border-color: var(--accent-light);
+        }
+        .srv-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin: 32px 0;
+        }
+        .srv-filters button {
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: transparent;
+            color: #666;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-body);
+        }
+        .srv-filters button:hover {
+            border-color: var(--on-tertiary-container);
+            color: var(--on-tertiary-container);
+        }
+        .srv-filters button.active {
+            background: var(--primary);
+            color: var(--on-primary);
+            border-color: var(--primary);
+        }
+        .srv-search {
+            max-width: 500px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+        .srv-search input {
+            width: 100%;
+            padding: 14px 20px 14px 48px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 50px;
+            font-size: 14px;
+            font-family: var(--font-body);
+            color: var(--primary);
+            background: rgba(0,0,0,0.02);
+            outline: none;
+            transition: var(--transition);
+        }
+        .srv-search input:focus {
+            border-color: var(--on-tertiary-container);
+            box-shadow: 0 0 0 3px rgba(139,105,20,0.1);
+        }
+        .srv-search svg {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: #999;
         }
         .servicios-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: rgba(200,197,202,0.08);
-            border: 1px solid rgba(200,197,202,0.08);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
+            gap: 24px;
         }
         .servicio-card {
-            background: var(--surface);
-            padding: 32px 28px;
+            background: rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: var(--radius-xl);
+            padding: 32px;
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
         .servicio-card:hover {
-            background: rgba(255,255,255,0.02);
+            border-color: var(--on-tertiary-container);
+            box-shadow: 0 8px 30px rgba(139,105,20,0.08);
         }
-        .servicio-card .servicio-icon {
-            font-size: 24px;
-            color: var(--accent-light);
+        .servicio-card .srv-icon-wrap {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        .servicio-card .srv-icon-wrap svg {
+            width: 24px;
+            height: 24px;
+        }
+        .servicio-card .srv-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
             margin-bottom: 12px;
-            display: block;
         }
         .servicio-card h3 {
             font-family: var(--font-display);
             font-size: 20px;
             font-weight: 500;
             letter-spacing: -0.01em;
-            margin-bottom: 6px;
-            color: var(--text-body);
+            margin-bottom: 8px;
+            color: var(--primary);
         }
         .servicio-card p {
             font-size: 14px;
             font-weight: 400;
-            line-height: 1.5;
-            color: var(--text-secondary);
+            line-height: 1.6;
+            color: #555;
+            flex-grow: 1;
+        }
+        .servicio-card .srv-ideal {
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding-top: 16px;
+            margin-top: 16px;
+        }
+        .servicio-card .srv-ideal span {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #999;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .servicio-card .srv-ideal p {
+            font-size: 13px;
+            color: #666;
+        }
+        .servicio-card .srv-ideal p svg {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+        .servicio-card .srv-cta {
+            display: block;
+            width: 100%;
+            margin-top: 16px;
+            padding: 12px;
+            background: var(--primary);
+            color: var(--on-primary);
+            border: none;
+            border-radius: var(--radius);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-body);
+            text-align: center;
+            text-decoration: none;
+        }
+        .servicio-card .srv-cta:hover {
+            background: var(--on-tertiary-container);
+            color: var(--surface-container-lowest);
+        }
+
+        /* MODAL */
+        .srv-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+        }
+        .srv-modal.open { display: flex; }
+        .srv-modal .modal-box {
+            background: #fff;
+            border-radius: 16px;
+            max-width: 520px;
+            width: 100%;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transform: scale(0.95);
+            transition: transform 300ms ease;
+        }
+        .srv-modal.open .modal-box { transform: scale(1); }
+        .srv-modal .modal-head {
+            background: var(--primary);
+            color: var(--on-primary);
+            padding: 28px 32px;
+            position: relative;
+        }
+        .srv-modal .modal-head .modal-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            padding: 4px;
+        }
+        .srv-modal .modal-head .modal-close:hover { color: #fff; }
+        .srv-modal .modal-head .modal-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent-light);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .srv-modal .modal-head h3 {
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+        .srv-modal .modal-head p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 4px;
+        }
+        .srv-modal .modal-body {
+            padding: 28px 32px;
+        }
+        .srv-modal .modal-body label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #555;
+            margin-bottom: 6px;
+        }
+        .srv-modal .modal-body input,
+        .srv-modal .modal-body textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(0,0,0,0.12);
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: var(--font-body);
+            color: var(--primary);
+            background: rgba(0,0,0,0.02);
+            outline: none;
+            transition: var(--transition);
+            margin-bottom: 16px;
+        }
+        .srv-modal .modal-body input:focus,
+        .srv-modal .modal-body textarea:focus {
+            border-color: var(--on-tertiary-container);
+        }
+        .srv-modal .modal-body .modal-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .srv-modal .modal-body .modal-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--on-tertiary-container);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-body);
+        }
+        .srv-modal .modal-body .modal-submit:hover {
+            background: var(--accent-light);
+            color: var(--tertiary-container);
+        }
+        .srv-modal .modal-body .modal-success {
+            display: none;
+            padding: 12px 16px;
+            background: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #2e7d32;
+            margin-bottom: 16px;
         }
 
         /* FILOSOFIA */
@@ -900,6 +1161,7 @@
             .bento-card { padding: 20px; }
             .servicios-grid { grid-template-columns: 1fr; }
             .servicio-card { padding: 24px 20px; }
+            .srv-modal .modal-body .modal-row { grid-template-columns: 1fr; }
             .proceso-rai .proceso-grid { grid-template-columns: 1fr; gap: 16px; }
             .proceso-step .step-num { font-size: 36px; }
             .footer-rai .footer-inner { grid-template-columns: 1fr; gap: 24px; }
@@ -1016,55 +1278,204 @@
     <section class="servicios-rai" id="servicios">
         <div class="servicios-inner">
             <div class="servicios-header fade-in">
-                <h2>Soluciones para distintos desafíos<br>de comunicación en tu negocio.</h2>
-                <a href="servicios.html">Ver todas las soluciones</a>
+                <h2>Portafolio de <span class="accent">Soluciones</span></h2>
+                <p>Filtra nuestro catálogo y encuentra la solución ideal para automatizar y potenciar tu comunicación.</p>
+                <a href="servicios.html" class="srv-link">Ver todas las soluciones</a>
             </div>
-            <div class="servicios-grid fade-in">
-                <div class="servicio-card">
-                    <span class="servicio-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    </span>
-                    <h3>Atención Inteligente</h3>
-                    <p>Resolución de dudas y soporte las 24 horas con la voz de tu marca.</p>
+
+            <div class="srv-filters fade-in" id="srvFilters">
+                <button class="active" data-cat="todos">Todos</button>
+                <button data-cat="conversacional">IA Conversacional</button>
+                <button data-cat="identidad">Identidad & Clones</button>
+                <button data-cat="sitios">Sitios Web & Captación</button>
+                <button data-cat="audiovisual">Audio, Video & Jingles</button>
+            </div>
+
+            <div class="srv-search fade-in">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="srvSearch" oninput="filtrarServicios()" placeholder="¿Qué solución necesitas?">
+            </div>
+
+            <div class="servicios-grid fade-in" id="srvGrid">
+
+                <div class="servicio-card" data-cat="conversacional">
+                    <div class="srv-icon-wrap" style="background:rgba(139,105,20,0.1);color:var(--on-tertiary-container);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <span class="srv-badge" style="background:rgba(139,105,20,0.1);color:var(--on-tertiary-container);">Soporte Web 24/7</span>
+                    <h3>Chatbot Conversacional Inteligente</h3>
+                    <p>Atiende las consultas de tus clientes desde tu sitio web, mantiene conversaciones naturales, responde en más de 70 idiomas y deriva la atención a una persona cuando es necesario.</p>
+                    <div class="srv-ideal">
+                        <span>Ideal para</span>
+                        <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Integración inmediata en cualquier CMS o web HTML.</p>
+                    </div>
+                    <button class="srv-cta" onclick="abrirModal('Chatbot Conversacional Inteligente','Atención de consultas web automáticas en más de 70 idiomas con derivación humana')">Solicitar Información</button>
                 </div>
-                <div class="servicio-card">
-                    <span class="servicio-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    </span>
-                    <h3>Presencia Profesional</h3>
-                    <p>Identidad digital y portavoces que elevan la percepción de confianza.</p>
+
+                <div class="servicio-card" data-cat="conversacional">
+                    <div class="srv-icon-wrap" style="background:rgba(16,185,129,0.1);color:#059669;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-.875-1.134-.412-2.013-.848-2.657-1.332-.621-.466-.77-.765-.86-.985-.088-.22-.01-.34.194-.54.193-.19.418-.404.567-.574.15-.17.18-.304.27-.507.09-.203.045-.38-.023-.532-.067-.152-.668-1.612-.916-2.207-.242-.579-.487-.5-.668-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </div>
+                    <span class="srv-badge" style="background:rgba(16,185,129,0.1);color:#059669;">Automatización Móvil</span>
+                    <h3>WhatsApp Conversacional Inteligente</h3>
+                    <p>Responde automáticamente por WhatsApp las 24 horas, comprende las consultas de tus clientes, conversa en más de 70 idiomas y permite continuar la atención humana cuando se requiere.</p>
+                    <div class="srv-ideal">
+                        <span>Ideal para</span>
+                        <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Negocios de alta demanda, e-commerce y agencias.</p>
+                    </div>
+                    <button class="srv-cta" onclick="abrirModal('WhatsApp Conversacional Inteligente','Automatización conversacional inteligente por WhatsApp 24/7 en más de 70 idiomas')">Solicitar Información</button>
                 </div>
-                <div class="servicio-card">
-                    <span class="servicio-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-                    </span>
-                    <h3>Comunicación Audiovisual</h3>
-                    <p>Producción de contenido dinámico impulsado por IA para redes y web.</p>
+
+                <div class="servicio-card" data-cat="identidad">
+                    <div class="srv-icon-wrap" style="background:rgba(139,92,246,0.1);color:#7c3aed;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <span class="srv-badge" style="background:rgba(139,92,246,0.1);color:#7c3aed;">Portavoz Virtual</span>
+                    <h3>Embajador Digital</h3>
+                    <p>Un portavoz virtual profesional, con identidad propia, que representa a tu negocio y presenta tus productos, servicios y mensajes en más de 70 idiomas.</p>
+                    <div class="srv-ideal">
+                        <span>Ideal para</span>
+                        <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Videos de inducción, capacitaciones y catálogo de ventas.</p>
+                    </div>
+                    <button class="srv-cta" onclick="abrirModal('Embajador Digital','Portavoz virtual con identidad propia para la difusión de catálogo multilingüe')">Solicitar Información</button>
                 </div>
-                <div class="servicio-card">
-                    <span class="servicio-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                    </span>
-                    <h3>Automatización</h3>
-                    <p>Flujos de trabajo que eliminan las tareas repetitivas en tu negocio.</p>
+
+                <div class="servicio-card" data-cat="identidad">
+                    <div class="srv-icon-wrap" style="background:rgba(99,102,241,0.1);color:#6366f1;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <span class="srv-badge" style="background:rgba(99,102,241,0.1);color:#6366f1;">Hiperrealismo Generativo</span>
+                    <h3>Tu Clon Digital</h3>
+                    <p>Una versión digital de vos mismo que conserva tu imagen, tu voz y tu forma de comunicar para crear contenidos en más de 70 idiomas.</p>
+                    <div class="srv-ideal">
+                        <span>Ideal para</span>
+                        <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Creadores de contenido, directores ejecutivos y mentores.</p>
+                    </div>
+                    <button class="srv-cta" onclick="abrirModal('Tu Clon Digital','Creación de un clon digital hiperrealista con tu propia voz e imagen')">Solicitar Información</button>
                 </div>
-                <div class="servicio-card">
-                    <span class="servicio-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    </span>
-                    <h3>Experiencias Conversacionales</h3>
-                    <p>Diseño de chats que realmente comprenden y ayudan a tus clientes.</p>
+
+                <div class="servicio-card" data-cat="sitios">
+                    <div class="srv-icon-wrap" style="background:rgba(59,130,246,0.1);color:#3b82f6;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                    </div>
+                    <span class="srv-badge" style="background:rgba(59,130,246,0.1);color:#3b82f6;">Infraestructura Corporativa</span>
+                    <h3>Sitio Web Profesional</h3>
+                    <p>Un sitio diseñado para reflejar la calidad de tu negocio, transmitir confianza y ofrecer una experiencia profesional desde el primer contacto.</p>
+                    <div class="srv-ideal">
+                        <span>Ideal para</span>
+                        <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Empresas en crecimiento que necesitan una sólida imagen digital.</p>
+                    </div>
+                    <button class="srv-cta" onclick="abrirModal('Sitio Web Profesional','Desarrollo de sitio web corporativo optimizado para posicionamiento y confianza')">Solicitar Información</button>
                 </div>
-                <div class="servicio-card">
-                    <span class="servicio-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                    </span>
-                    <h3>Producción Profesional</h3>
-                    <p>Sonido y voz sintética de alta fidelidad para manuales y formación.</p>
+
+                <div class="servicio-card" data-cat="sitios">
+                    <div class="srv-icon-wrap" style="background:rgba(6,182,212,0.1);color:#0891b2;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    </div>
+                    <span class="srv-badge" style="background:rgba(6,182,212,0.1);color:#0891b2;">Conversión & Leads</span>
+                    <h3>Páginas de Captación de Clientes</h3>
+                    <p>Páginas creadas para presentar una oferta específica, despertar interés y convertir visitantes en nuevas oportunidades comerciales.</p>
+                    <div class="srv-ideal">
+                        <span>Ideal para</span>
+                        <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Campañas publicitarias dirigidas en Google o Redes Sociales.</p>
+                    </div>
+                    <button class="srv-cta" onclick="abrirModal('Páginas de Captación','Diseño de Landing Pages de alta conversión para adquisición de clientes')">Solicitar Información</button>
                 </div>
+
+                <div class="servicio-card" data-cat="audiovisual">
+                    <div class="srv-icon-wrap" style="background:rgba(239,68,68,0.1);color:#dc2626;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                    </div>
+                    <span class="srv-badge" style="background:rgba(239,68,68,0.1);color:#dc2626;">Multimedia</span>
+                    <h3>Videos Profesionales</h3>
+                    <p>Videos para presentar tu negocio, promocionar productos y servicios, comunicar ideas y fortalecer la percepción de tu marca.</p>
+                    <div class="srv-ideal">
+                        <span>Ideal para</span>
+                        <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Campañas corporativas, reels de impacto y lanzamientos.</p>
+                    </div>
+                    <button class="srv-cta" onclick="abrirModal('Videos Profesionales','Producción y edición estratégica de videos para marca o productos')">Solicitar Información</button>
+                </div>
+
+                <div class="servicio-card" data-cat="audiovisual">
+                    <div class="srv-icon-wrap" style="background:rgba(245,158,11,0.1);color:#d97706;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                    </div>
+                    <span class="srv-badge" style="background:rgba(245,158,11,0.1);color:#d97706;">Locución Multilingüe</span>
+                    <h3>Locución Profesional</h3>
+                    <p>Voces profesionales para anuncios, videos, presentaciones y contenidos comerciales, disponibles en más de 70 idiomas.</p>
+                    <div class="srv-ideal">
+                        <span>Ideal para</span>
+                        <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Anuncios radiales, spots de TV y videos de capacitación.</p>
+                    </div>
+                    <button class="srv-cta" onclick="abrirModal('Locución Profesional','Servicios de voz en off corporativa y comercial multilingüe')">Solicitar Información</button>
+                </div>
+
+                <div class="servicio-card" data-cat="audiovisual">
+                    <div class="srv-icon-wrap" style="background:rgba(16,185,129,0.1);color:#059669;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <span class="srv-badge" style="background:rgba(16,185,129,0.1);color:#059669;">Globalización</span>
+                    <h3>Traducción de Audio y Video</h3>
+                    <p>Adaptación de contenidos a más de 70 idiomas, incluyendo traducción, doblaje y sincronización, conservando la naturalidad del mensaje y la identidad de la voz.</p>
+                    <div class="srv-ideal">
+                        <span>Ideal para</span>
+                        <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Marcas que planean expandirse a mercados extranjeros.</p>
+                    </div>
+                    <button class="srv-cta" onclick="abrirModal('Traducción de Audio y Video','Doblaje y traducción con sincronización inteligente multilingüe')">Solicitar Información</button>
+                </div>
+
+                <div class="servicio-card" data-cat="audiovisual">
+                    <div class="srv-icon-wrap" style="background:rgba(249,115,22,0.1);color:#ea580c;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                    </div>
+                    <span class="srv-badge" style="background:rgba(249,115,22,0.1);color:#ea580c;">Identidad Sonora</span>
+                    <h3>Jingles Publicitarios</h3>
+                    <p>Canciones originales creadas para comunicar, diferenciar y hacer que tu negocio sea más fácil de recordar por tus clientes o prospectos.</p>
+                    <div class="srv-ideal">
+                        <span>Ideal para</span>
+                        <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Lograr recordación de marca insuperable de forma auditiva.</p>
+                    </div>
+                    <button class="srv-cta" onclick="abrirModal('Jingles Publicitarios','Creación y composición artística de un jingle publicitario de alto impacto')">Solicitar Información</button>
+                </div>
+
             </div>
         </div>
     </section>
+
+    <!-- MODAL CONTACTO -->
+    <div class="srv-modal" id="srvModal">
+        <div class="modal-box">
+            <div class="modal-head">
+                <button class="modal-close" onclick="cerrarModal()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+                <span class="modal-label">Solicitar Servicio</span>
+                <h3 id="modalTitle">Nombre del Servicio</h3>
+                <p id="modalDesc">Descripción del servicio</p>
+            </div>
+            <form class="modal-body" onsubmit="enviarSolicitud(event)">
+                <input type="hidden" id="modalServiceName">
+                <label for="modalName">Nombre Completo o Empresa</label>
+                <input type="text" id="modalName" required placeholder="Ej: Juan Pérez">
+                <div class="modal-row">
+                    <div>
+                        <label for="modalPhone">WhatsApp</label>
+                        <input type="tel" id="modalPhone" required placeholder="0981 123456">
+                    </div>
+                    <div>
+                        <label for="modalEmail">Email</label>
+                        <input type="email" id="modalEmail" placeholder="ejemplo@correo.com">
+                    </div>
+                </div>
+                <label for="modalMsg">Mensaje</label>
+                <textarea id="modalMsg" rows="3" placeholder="Cuéntanos sobre tu negocio..."></textarea>
+                <div class="modal-success" id="modalSuccess">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg>¡Solicitud enviada con éxito! Te contactaremos vía WhatsApp.
+                </div>
+                <button type="submit" class="modal-submit">Confirmar y Enviar Solicitud</button>
+            </form>
+        </div>
+    </div>
 
     <!-- FILOSOFIA -->
     <section class="filosofia-rai">
@@ -1217,6 +1628,69 @@
         document.querySelectorAll('.fade-in').forEach(function(el) {
             observer.observe(el);
         });
+
+        // SERVICIOS: filter + search
+        function filtrarServicios() {
+            var cat = document.querySelector('#srvFilters .active');
+            var categoria = cat ? cat.getAttribute('data-cat') : 'todos';
+            var q = (document.getElementById('srvSearch').value || '').toLowerCase();
+            var cards = document.querySelectorAll('#srvGrid .servicio-card');
+            cards.forEach(function(c) {
+                var cCat = c.getAttribute('data-cat');
+                var texto = (c.textContent || '').toLowerCase();
+                var matchCat = categoria === 'todos' || cCat === categoria;
+                var matchQ = q === '' || texto.indexOf(q) !== -1;
+                c.style.display = matchCat && matchQ ? 'flex' : 'none';
+            });
+        }
+        document.querySelectorAll('#srvFilters button').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('#srvFilters button').forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                filtrarServicios();
+            });
+        });
+
+        // MODAL
+        var srvModal = document.getElementById('srvModal');
+        function abrirModal(nombre, desc) {
+            document.getElementById('modalTitle').textContent = nombre;
+            document.getElementById('modalDesc').textContent = desc;
+            document.getElementById('modalServiceName').value = nombre;
+            document.getElementById('modalSuccess').style.display = 'none';
+            document.getElementById('modalName').value = '';
+            document.getElementById('modalPhone').value = '';
+            document.getElementById('modalEmail').value = '';
+            document.getElementById('modalMsg').value = '';
+            srvModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function cerrarModal() {
+            srvModal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        srvModal.addEventListener('click', function(e) {
+            if (e.target === srvModal) cerrarModal();
+        });
+
+        // Submit → WhatsApp
+        function enviarSolicitud(e) {
+            e.preventDefault();
+            var svc = document.getElementById('modalServiceName').value;
+            var nom = document.getElementById('modalName').value.trim();
+            var tel = document.getElementById('modalPhone').value.trim();
+            var email = document.getElementById('modalEmail').value.trim();
+            var msg = document.getElementById('modalMsg').value.trim();
+            var texto = 'Hola Rodas AI,%0A%0A' +
+                'Quiero solicitar información sobre: ' + encodeURIComponent(svc) + '%0A' +
+                'Nombre: ' + encodeURIComponent(nom) + '%0A' +
+                'WhatsApp: ' + encodeURIComponent(tel) +
+                (email ? '%0AEmail: ' + encodeURIComponent(email) : '') +
+                (msg ? '%0A%0AMensaje: ' + encodeURIComponent(msg) : '') +
+                '%0A%0A(Gracias por contactarnos, te responderemos a la brevedad.)';
+            document.getElementById('modalSuccess').style.display = 'block';
+            window.open('https://wa.me/595986467299?text=' + texto, '_blank');
+        }
     </script>
 </body>
 </html>
