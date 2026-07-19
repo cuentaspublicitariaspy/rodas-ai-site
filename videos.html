@@ -234,10 +234,6 @@
             overflow: hidden;
             background: #000;
         }
-        .vid-grid .vid-card.vertical .vid-wrap {
-            aspect-ratio: 9/16;
-            max-height: 70vh;
-        }
         .vid-grid .vid-card video {
             position: absolute;
             inset: 0;
@@ -646,7 +642,6 @@
             .vid-section-dark p { font-size: 16px; }
             .vid-section-light p { font-size: 16px; }
             .vid-grid { grid-template-columns: 1fr; gap: 12px; }
-            .vid-grid .vid-card.vertical .vid-wrap { max-height: 70vh; }
             .vid-features { grid-template-columns: 1fr; gap: 16px; }
             .vid-cta { padding: 48px 20px; }
             .vid-cta h2 { font-size: 28px; }
@@ -739,7 +734,7 @@
                     </div>
                 </div>
 
-                <div class="vid-card vertical fade-in">
+                <div class="vid-card fade-in">
                     <div class="vid-wrap">
                         <video controls playsinline preload="metadata">
                             <source src="multimedia/AnuncioLabial-9-16.mp4" type="video/mp4">
