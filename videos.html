@@ -236,10 +236,13 @@
         }
         .vid-grid .vid-card.vertical .vid-wrap {
             aspect-ratio: 9/16;
-            max-height: 70vh;
         }
         .vid-grid .vid-card.vertical video {
             transform: scale(1.08);
+        }
+        .vid-grid .vid-card.vertical {
+            max-width: 380px;
+            justify-self: center;
         }
         .vid-grid .vid-card video {
             position: absolute;
@@ -649,7 +652,7 @@
             .vid-section-dark p { font-size: 16px; }
             .vid-section-light p { font-size: 16px; }
             .vid-grid { grid-template-columns: 1fr; gap: 12px; }
-            .vid-grid .vid-card.vertical .vid-wrap { max-height: 50vh; }
+            .vid-grid .vid-card.vertical { max-width: 260px; }
             .vid-features { grid-template-columns: 1fr; gap: 16px; }
             .vid-cta { padding: 48px 20px; }
             .vid-cta h2 { font-size: 28px; }
