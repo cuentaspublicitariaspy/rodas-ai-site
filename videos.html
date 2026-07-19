@@ -227,14 +227,21 @@
             box-shadow: 0 20px 48px -12px rgba(0,0,0,0.25);
             transform: translateY(-2px);
         }
-        .vid-grid .vid-card video {
+        .vid-grid .vid-card .vid-wrap {
+            position: relative;
             width: 100%;
-            display: block;
             aspect-ratio: 16/9;
-            object-fit: cover;
+            overflow: hidden;
+            background: #000;
         }
-        .vid-grid .vid-card.vertical video {
+        .vid-grid .vid-card.vertical .vid-wrap {
             aspect-ratio: 9/16;
+        }
+        .vid-grid .vid-card video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
         .vid-grid .vid-card .vid-label {
@@ -709,37 +716,47 @@
             <div class="vid-grid">
 
                 <div class="vid-card fade-in">
-                    <video autoplay muted loop playsinline preload="metadata">
-                        <source src="multimedia/VideoBatidoHL-16-9.mp4" type="video/mp4">
-                    </video>
+                    <div class="vid-wrap">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="multimedia/VideoBatidoHL-16-9.mp4" type="video/mp4">
+                        </video>
+                    </div>
                     <div class="vid-label">VideoBatidoHL &mdash; 16:9</div>
                 </div>
 
                 <div class="vid-card vertical fade-in">
-                    <video autoplay muted loop playsinline preload="metadata">
-                        <source src="multimedia/AnuncioLabial-9-16.mp4" type="video/mp4">
-                    </video>
+                    <div class="vid-wrap">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="multimedia/AnuncioLabial-9-16.mp4" type="video/mp4">
+                        </video>
+                    </div>
                     <div class="vid-label">AnuncioLabial &mdash; 9:16</div>
                 </div>
 
                 <div class="vid-card fade-in">
-                    <video autoplay muted loop playsinline preload="metadata">
-                        <source src="multimedia/ComercialChocotorta-16-9.mp4" type="video/mp4">
-                    </video>
+                    <div class="vid-wrap">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="multimedia/ComercialChocotorta-16-9.mp4" type="video/mp4">
+                        </video>
+                    </div>
                     <div class="vid-label">ComercialChocotorta &mdash; 16:9</div>
                 </div>
 
                 <div class="vid-card fade-in">
-                    <video autoplay muted loop playsinline preload="metadata">
-                        <source src="multimedia/ComidaPikitina-16-9.mp4" type="video/mp4">
-                    </video>
+                    <div class="vid-wrap">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="multimedia/ComidaPikitina-16-9.mp4" type="video/mp4">
+                        </video>
+                    </div>
                     <div class="vid-label">ComidaPikitina &mdash; 16:9</div>
                 </div>
 
                 <div class="vid-card fade-in">
-                    <video autoplay muted loop playsinline preload="metadata">
-                        <source src="multimedia/Someterseasuesposo-16-9.mp4" type="video/mp4">
-                    </video>
+                    <div class="vid-wrap">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="multimedia/Someterseasuesposo-16-9.mp4" type="video/mp4">
+                        </video>
+                    </div>
                     <div class="vid-label">Someterseasuesposo &mdash; 16:9</div>
                 </div>
 
