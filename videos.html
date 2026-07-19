@@ -166,12 +166,32 @@
 
         /* PAGE HERO */
         .vid-hero {
-            padding: 140px var(--margin-desktop) 60px;
-            background: var(--surface-container-lowest);
-            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            color: var(--text-body);
             max-width: 100%;
         }
+        .vid-hero .hero-bg-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .vid-hero .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(27,27,29,0.82) 0%, rgba(27,27,29,0.45) 50%, rgba(27,27,29,0.78) 100%);
+            z-index: 1;
+        }
         .vid-hero .vid-hero-inner {
+            position: relative;
+            z-index: 2;
             max-width: var(--container-max);
             margin: 0 auto;
             display: grid;
@@ -185,8 +205,9 @@
             font-weight: 300;
             line-height: 1.08;
             letter-spacing: -0.03em;
-            color: var(--primary);
+            color: var(--text-body);
             margin-bottom: 16px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
         }
         .vid-hero-text h1 .accent {
             color: var(--on-tertiary-container);
@@ -196,9 +217,10 @@
             font-size: 18px;
             font-weight: 400;
             line-height: 1.6;
-            color: #1c1c1a;
+            color: rgba(252,249,245,0.85);
             margin-bottom: 24px;
             max-width: 500px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
         }
         .vid-hero-text .vid-hero-badge {
             display: inline-block;
@@ -206,7 +228,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            color: var(--on-tertiary-container);
+            color: var(--accent-light);
             margin-bottom: 8px;
         }
         /* VIDEO GALLERY GRID */
@@ -599,7 +621,6 @@
 
         /* RESPONSIVE */
         @media (max-width: 1024px) {
-            .vid-hero { padding: 100px 24px 48px; }
             .vid-hero-text h1 { font-size: 42px; }
             .vid-section-dark { padding: 60px 24px; }
             .vid-section-light { padding: 60px 24px; }
@@ -638,7 +659,7 @@
                 margin-top: 8px;
             }
             .mobile-bottom-nav { display: block; }
-            .vid-hero { padding: 80px 20px 40px; }
+            .vid-hero { min-height: 60vh; }
             .vid-hero-text h1 { font-size: 32px; }
             .vid-hero-text p { font-size: 16px; }
             .vid-section-dark { padding: 48px 20px; }
@@ -690,6 +711,10 @@
 
     <!-- PAGE HERO -->
     <section class="vid-hero">
+        <video class="hero-bg-video" autoplay muted loop playsinline preload="auto">
+            <source src="multimedia/FondoServicios.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="vid-hero-inner" style="grid-template-columns:1fr;text-align:center;max-width:800px;">
             <div class="vid-hero-text fade-in" style="max-width:100%;">
                 <span class="vid-hero-badge">Producci&oacute;n Audiovisual</span>
