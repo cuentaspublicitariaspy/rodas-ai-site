@@ -40,18 +40,25 @@
         position: relative;
         z-index: 2;
       }
-      .page-header h1,
-      .page-header p {
-        text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+      .page-header .hero-card {
+        display: inline-block;
+        background: rgba(15,15,17,0.65);
+        backdrop-filter: blur(8px);
+        padding: 40px 48px;
+        border-radius: 12px;
+        border: 1px solid rgba(252,249,245,0.08);
       }
       .page-header h1 {
         color: #fcf9f5;
+        margin-bottom: 8px;
       }
       .page-header p {
-        color: rgba(252,249,245,0.85);
+        color: rgba(252,249,245,0.9);
+        margin-bottom: 0;
       }
       @media (max-width: 768px) {
         .page-header { min-height: 60vh; }
+        .page-header .hero-card { padding: 28px 24px; }
       }
     </style>
   </head>
@@ -89,8 +96,10 @@
       </video>
       <div class="hero-overlay"></div>
       <div class="container">
-        <h1>Servicios</h1>
-        <p>Sistemas inteligentes de comunicación diseñados para transformar tu organización</p>
+        <div class="hero-card">
+          <h1>Servicios</h1>
+          <p>Sistemas inteligentes de comunicación diseñados para transformar tu organización</p>
+        </div>
       </div>
     </section>
 

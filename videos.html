@@ -200,6 +200,13 @@
             gap: 64px;
             align-items: center;
         }
+        .vid-hero-text {
+            background: rgba(15,15,17,0.65);
+            backdrop-filter: blur(8px);
+            padding: 40px 48px;
+            border-radius: 12px;
+            border: 1px solid rgba(252,249,245,0.08);
+        }
         .vid-hero-text h1 {
             font-family: var(--font-display);
             font-size: 56px;
@@ -208,20 +215,18 @@
             letter-spacing: -0.03em;
             color: var(--text-body);
             margin-bottom: 16px;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
         }
         .vid-hero-text h1 .accent {
-            color: var(--on-tertiary-container);
+            color: var(--accent-light);
             font-style: italic;
         }
         .vid-hero-text p {
             font-size: 18px;
             font-weight: 400;
             line-height: 1.6;
-            color: rgba(252,249,245,0.85);
+            color: rgba(252,249,245,0.9);
             margin-bottom: 24px;
             max-width: 500px;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
         }
         .vid-hero-text .vid-hero-badge {
             display: inline-block;
@@ -661,6 +666,7 @@
             }
             .mobile-bottom-nav { display: block; }
             .vid-hero { min-height: 60vh; }
+            .vid-hero-text { padding: 28px 24px; }
             .vid-hero-text h1 { font-size: 32px; }
             .vid-hero-text p { font-size: 16px; }
             .vid-section-dark { padding: 48px 20px; }
@@ -721,7 +727,7 @@
                 <span class="vid-hero-badge">Comunicaci&oacute;n Visual Estrat&eacute;gica</span>
                 <h1>El Poder del <span class="accent">Video Estrat&eacute;gico</span></h1>
                 <p style="max-width:100%;">Tres segundos. Eso tienes para capturar su atenci&oacute;n antes de que sigan scrolleando. Creamos videos profesionales con narrativa persuasiva, producci&oacute;n de alto nivel y un &uacute;nico objetivo: convertir miradas en clientes. Cada plano, cada palabra y cada segundo est&aacute; dise&ntilde;ado para vender.</p>
-                <a href="#contacto" class="btn-primary">Solicitar cotizaci&oacute;n</a>
+                <button class="btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Solicitar cotizaci&oacute;n</button>
             </div>
         </div>
     </section>
