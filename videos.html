@@ -212,7 +212,7 @@
         /* VIDEO GALLERY GRID */
         .vid-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin-top: 24px;
         }
@@ -252,8 +252,11 @@
             font-weight: 500;
             letter-spacing: 0.03em;
         }
-        .vid-grid .vid-card.vertical {
-            grid-row: span 2;
+        .vid-grid .vid-card.vertical .vid-wrap {
+            aspect-ratio: 9/16;
+        }
+        .vid-grid .vid-card.vertical .vid-label {
+            text-align: center;
         }
 
         /* SECTION DARK */
@@ -612,7 +615,6 @@
             .vid-section-dark h2 { font-size: 34px; }
             .vid-section-light h2 { font-size: 34px; }
             .vid-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-            .vid-grid .vid-card.vertical { grid-row: span 1; }
             .vid-features { grid-template-columns: 1fr 1fr; }
             .vid-cta { padding: 60px 24px; }
             .vid-cta h2 { font-size: 34px; }
@@ -655,6 +657,7 @@
             .vid-section-dark p { font-size: 16px; }
             .vid-section-light p { font-size: 16px; }
             .vid-grid { grid-template-columns: 1fr; gap: 12px; }
+            .vid-grid .vid-card.vertical .vid-wrap { max-height: 70vh; }
             .vid-features { grid-template-columns: 1fr; gap: 16px; }
             .vid-cta { padding: 48px 20px; }
             .vid-cta h2 { font-size: 28px; }
@@ -724,15 +727,6 @@
                     <div class="vid-label">VideoBatidoHL &mdash; 16:9</div>
                 </div>
 
-                <div class="vid-card vertical fade-in">
-                    <div class="vid-wrap">
-                        <video autoplay muted loop playsinline preload="metadata">
-                            <source src="multimedia/AnuncioLabial-9-16.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="vid-label">AnuncioLabial &mdash; 9:16</div>
-                </div>
-
                 <div class="vid-card fade-in">
                     <div class="vid-wrap">
                         <video autoplay muted loop playsinline preload="metadata">
@@ -758,6 +752,15 @@
                         </video>
                     </div>
                     <div class="vid-label">Someterseasuesposo &mdash; 16:9</div>
+                </div>
+
+                <div class="vid-card vertical fade-in">
+                    <div class="vid-wrap">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="multimedia/AnuncioLabial-9-16.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="vid-label">AnuncioLabial &mdash; 9:16</div>
                 </div>
 
             </div>
