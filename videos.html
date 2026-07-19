@@ -716,7 +716,7 @@
 
                 <div class="vid-card fade-in">
                     <div class="vid-wrap">
-                        <video controls playsinline preload="metadata">
+                        <video controls playsinline muted preload="auto">
                             <source src="multimedia/VideoBatidoHL-16-9.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -724,7 +724,7 @@
 
                 <div class="vid-card fade-in">
                     <div class="vid-wrap">
-                        <video controls playsinline preload="metadata">
+                        <video controls playsinline muted preload="auto">
                             <source src="multimedia/ComercialChocotorta-16-9.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -732,7 +732,7 @@
 
                 <div class="vid-card fade-in">
                     <div class="vid-wrap">
-                        <video controls playsinline preload="metadata">
+                        <video controls playsinline muted preload="auto">
                             <source src="multimedia/ComidaPikitina-16-9.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -740,7 +740,7 @@
 
                 <div class="vid-card fade-in">
                     <div class="vid-wrap">
-                        <video controls playsinline preload="metadata">
+                        <video controls playsinline muted preload="auto">
                             <source src="multimedia/Someterseasuesposo-16-9.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -748,7 +748,7 @@
 
                 <div class="vid-card vertical fade-in">
                     <div class="vid-wrap">
-                        <video controls playsinline preload="metadata">
+                        <video controls playsinline muted preload="auto">
                             <source src="multimedia/AnuncioLabial-9-16.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -970,6 +970,23 @@
                     if (other !== v) other.pause();
                 });
             });
+        });
+
+        // Generate poster thumbnails from 1st second
+        allVids.forEach(function(v) {
+            v.addEventListener('loadedmetadata', function() {
+                this.currentTime = 0.5;
+            });
+            v.addEventListener('seeked', function() {
+                if (this.poster) return;
+                try {
+                    var c = document.createElement('canvas');
+                    c.width = this.videoWidth;
+                    c.height = this.videoHeight;
+                    c.getContext('2d').drawImage(this, 0, 0);
+                    this.poster = c.toDataURL('image/jpeg', 0.85);
+                } catch(e) {}
+            }, { once: true });
         });
     </script>
 </body>
