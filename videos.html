@@ -227,10 +227,6 @@
             box-shadow: 0 20px 48px -12px rgba(0,0,0,0.25);
             transform: translateY(-2px);
         }
-        .vid-grid .vid-card {
-            cursor: pointer;
-            position: relative;
-        }
         .vid-grid .vid-card .vid-wrap {
             position: relative;
             width: 100%;
@@ -249,34 +245,8 @@
             height: 100%;
             object-fit: cover;
         }
-        .vid-grid .vid-card .vid-play {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0,0,0,0.35);
-            transition: opacity 400ms ease-out;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .vid-grid .vid-card .vid-play svg {
-            width: 54px;
-            height: 54px;
-            color: rgba(255,255,255,0.85);
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
-            transition: transform 300ms ease-out;
-        }
-        .vid-grid .vid-card:hover .vid-play svg {
-            transform: scale(1.08);
-        }
-        .vid-grid .vid-card .vid-play.played {
-            opacity: 0;
-        }
-        .vid-grid .vid-card.vertical .vid-wrap {
-            aspect-ratio: 9/16;
-            max-height: 70vh;
-        }
+        .vid-grid .vid-card video::-webkit-media-controls-volume-slider { display:block; }
+        .vid-grid .vid-card video::-webkit-media-controls-mute-button { display:block; }
 
         /* SECTION DARK */
         .vid-section-dark {
@@ -739,56 +709,41 @@
 
                 <div class="vid-card fade-in">
                     <div class="vid-wrap">
-                        <video muted playsinline preload="metadata">
+                        <video controls playsinline preload="metadata">
                             <source src="multimedia/VideoBatidoHL-16-9.mp4" type="video/mp4">
                         </video>
-                        <div class="vid-play">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
                     </div>
                 </div>
 
                 <div class="vid-card fade-in">
                     <div class="vid-wrap">
-                        <video muted playsinline preload="metadata">
+                        <video controls playsinline preload="metadata">
                             <source src="multimedia/ComercialChocotorta-16-9.mp4" type="video/mp4">
                         </video>
-                        <div class="vid-play">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
                     </div>
                 </div>
 
                 <div class="vid-card fade-in">
                     <div class="vid-wrap">
-                        <video muted playsinline preload="metadata">
+                        <video controls playsinline preload="metadata">
                             <source src="multimedia/ComidaPikitina-16-9.mp4" type="video/mp4">
                         </video>
-                        <div class="vid-play">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
                     </div>
                 </div>
 
                 <div class="vid-card fade-in">
                     <div class="vid-wrap">
-                        <video muted playsinline preload="metadata">
+                        <video controls playsinline preload="metadata">
                             <source src="multimedia/Someterseasuesposo-16-9.mp4" type="video/mp4">
                         </video>
-                        <div class="vid-play">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
                     </div>
                 </div>
 
                 <div class="vid-card vertical fade-in">
                     <div class="vid-wrap">
-                        <video muted playsinline preload="metadata">
+                        <video controls playsinline preload="metadata">
                             <source src="multimedia/AnuncioLabial-9-16.mp4" type="video/mp4">
                         </video>
-                        <div class="vid-play">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
                     </div>
                 </div>
 
@@ -1000,44 +955,14 @@
             observer.observe(el);
         });
 
-        // Video gallery: click to play, one at a time
-        var allCards = document.querySelectorAll('#vidGrid .vid-card');
-        allCards.forEach(function(card) {
-            card.addEventListener('click', function() {
-                var video = card.querySelector('video');
-                var overlay = card.querySelector('.vid-play');
-                if (!video) return;
-
-                // If this video is already playing, pause it
-                if (!video.paused) {
-                    video.pause();
-                    if (overlay) overlay.classList.remove('played');
-                    return;
-                }
-
-                // Pause all other videos and show their overlays
-                allCards.forEach(function(other) {
-                    var ov = other.querySelector('.vid-play');
-                    var v = other.querySelector('video');
-                    if (v && v !== video) {
-                        v.pause();
-                        if (ov) ov.classList.remove('played');
-                    }
+        // Video gallery: one at a time
+        var allVids = document.querySelectorAll('#vidGrid video');
+        allVids.forEach(function(v) {
+            v.addEventListener('play', function() {
+                allVids.forEach(function(other) {
+                    if (other !== v) other.pause();
                 });
-
-                // Play this one
-                video.play();
-                if (overlay) overlay.classList.add('played');
             });
-
-            // When video pauses or ends, show overlay again
-            var v = card.querySelector('video');
-            var o = card.querySelector('.vid-play');
-            if (v && o) {
-                v.addEventListener('pause', function() {
-                    setTimeout(function() { o.classList.remove('played'); }, 50);
-                });
-            }
         });
     </script>
 </body>
