@@ -975,7 +975,7 @@
         // Generate poster thumbnails from 1st second
         allVids.forEach(function(v) {
             v.addEventListener('loadedmetadata', function() {
-                this.currentTime = 0.5;
+                this.currentTime = 1;
             });
             v.addEventListener('seeked', function() {
                 if (this.poster) return;
