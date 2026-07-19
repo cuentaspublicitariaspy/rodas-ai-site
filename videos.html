@@ -234,15 +234,16 @@
             overflow: hidden;
             background: #000;
         }
+        .vid-grid .vid-card.vertical {
+            grid-column: 1 / -1;
+            max-width: 400px;
+            justify-self: center;
+        }
         .vid-grid .vid-card.vertical .vid-wrap {
             aspect-ratio: 9/16;
         }
         .vid-grid .vid-card.vertical video {
             transform: scale(1.08);
-        }
-        .vid-grid .vid-card.vertical {
-            max-width: 380px;
-            justify-self: center;
         }
         .vid-grid .vid-card video {
             position: absolute;
@@ -652,7 +653,7 @@
             .vid-section-dark p { font-size: 16px; }
             .vid-section-light p { font-size: 16px; }
             .vid-grid { grid-template-columns: 1fr; gap: 12px; }
-            .vid-grid .vid-card.vertical { max-width: 260px; }
+            .vid-grid .vid-card.vertical { max-width: 280px; }
             .vid-features { grid-template-columns: 1fr; gap: 16px; }
             .vid-cta { padding: 48px 20px; }
             .vid-cta h2 { font-size: 28px; }
